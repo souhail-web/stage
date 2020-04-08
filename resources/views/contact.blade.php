@@ -1,1 +1,1 @@
-@extends('layouts/contact')
+@include('layouts/contact')

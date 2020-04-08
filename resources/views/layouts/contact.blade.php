@@ -1,4 +1,3 @@
-@include('layouts/main')
 @include('layouts/navbar')
 
 {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
@@ -17,7 +16,7 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
             <form action="/Contact" class="contact-form" method="POST">
                 {{ csrf_field() }}
 
-                <div class="col-sm-6">
+                <div class="col-sm-6" id="nomContact">
                     <div class="input-block">
                         <label for="">Nom</label>
                         <input name="contact_nom" type="text" class="form-control">
@@ -30,7 +29,7 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
                         @endif
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" id="prenomContact">
                     <div class="input-block">
                         <label for="">Prénom</label>
                         <input name="contact_prenom" type="text" class="form-control">
@@ -44,9 +43,9 @@ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9If
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <div class="input-block">
+                    <div class="input-block" id="emailContact">
                         <label for="">Email</label>
-                        <input name="contact_email" type="text" class="form-control">
+                        <input name="contact_email" type="text" class="form-control" >
                         {{-- Affichage de l'erreur  --}}
                         @if($errors->has('contact_email'))
                         <div class="error">

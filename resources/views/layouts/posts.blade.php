@@ -12,12 +12,10 @@
 
     {{-- Titre d'accueil --}}
     <hr>
-    <div class="row column">
-        <h4 style="margin: 0;" class="text-center">@yield('titre') </h4>
-    </div>
+    <div class="container">
+        <h4 class="text-center">@yield('titre') </h4>
     <hr>
 
-    <div class="container">
 
         {{-- Mise en page de l'article --}}
         <div class="row">
@@ -55,9 +53,9 @@
 
 
             {{-- Ajout de commentaire --}}
-            <div class="row column">
-                <h5 style="margin: 0;" class="text-center">Laissez un commentaire </h5>
-            </div>
+
+                <h4 class="text-center">Laissez un commentaire </h4>
+
 
 
             {{-- Formulaire de commentaire --}}

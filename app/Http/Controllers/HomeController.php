@@ -12,11 +12,13 @@ class HomeController extends Controller
 
     function index() {
 
-        $posts = \App\Post::latest('post_date')->take(3)->get(); //get all posts
+         $posts = \App\Post::latest('post_date')->take(3)->get(); //get all posts
 
         return view('welcome',array(
             'posts' => $posts
         ));
+
+      /*   return view('home'); */
 
 
     }

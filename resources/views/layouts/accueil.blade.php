@@ -2,12 +2,10 @@
 @include('layouts/banniere')
 
 
-<hr>
-<div class="row column">
-    <h4 style="margin: 0;" class="text-center">BREAKING NEWS</h4>
-</div>
-<hr>
 <div class ="container">
+<hr>
+    <h4 class="text-center">BREAKING NEWS</h4>
+<hr>
 @yield('ici')
 </div>
 
