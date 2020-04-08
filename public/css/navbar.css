@@ -67,7 +67,7 @@
         align-items: center;
     }
     .main-nav {
-        display: ruby;
+        display: inline-flex;
         /*                 margin-right: 30px;
 */
         /*                 flex-direction: row;
