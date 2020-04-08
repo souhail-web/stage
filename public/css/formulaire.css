@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
+ @import "compass";
+
+ body {
+    background-color:#ececec;
+
+
+ }
+ .container {
+
+    padding-top: 8%;
+ }
+ .contact-form {
+	 margin-top: 30px;
+}
+ .contact-form .input-block {
+	 background-color: rgba(255, 255, 255, .8);
+	 border: solid 1px gray;
+	 width: 100%;
+	 height: 60px;
+	 padding: 25px;
+	 position: relative;
+	 margin-bottom: 20px;
+}
+ .contact-form .input-block.focus {
+	 background-color: #fff;
+	 border: solid 1px gray;
+}
+ .contact-form .input-block.textarea {
+	 height: auto;
+}
+ .contact-form .input-block.textarea .form-control {
+/* 	 height: auto;
+ */	 resize: none;
+}
+ .contact-form .input-block label {
+	 position: absolute;
+	 left: 25px;
+	 top: 25px;
+	 display: block;
+	 margin: 0;
+	 font-weight: 300;
+	 z-index: 1;
+	 color: #333;
+	 font-size: 18px;
+	 line-height: 10px;
+}
+ .contact-form .input-block .form-control {
+	 background-color: transparent;
+	 padding: 0;
+	 border: none;
+	 border-radius: 0;
+	 box-shadow: none;
+	 height: auto;
+	 position: relative;
+	 z-index: 2;
+	 font-size: 18px;
+     color: #333;
+     width : 100%;
+}
+ .contact-form .input-block .form-control:focus label {
+	 top: 0;
+}
+ .contact-form .square-button {
+	 background-color: rgba(255, 255, 255, .8);
+	 color:#c32666;
+	 font-size: 22px;
+	 text-transform: uppercase;
+	 font-weight: 700;
+	 text-align: center;
+	 border-radius: 2px;
+	 padding: 0 60px;
+	 height: 60px;
+	 border: none;
+     width: 100%;
+     cursor: pointer;
+}
+.error {
+    padding-top: 12px;
+    color:#c32666;
+}
+
+ .contact-form .square-button:hover, .contact-form .square-button:focus {
+	 background-color: white;
+}
+ @media (min-width: 768px) {
+	 .contact-wrap {
+		 width: 60%;
+		 margin: auto;
+	}
+}
+/*----page styles---*/
+/*  body {
+	 background-image: linear-gradient(to right, #ff512f, #dd2476);
+	 font-family: 'Roboto', sans-serif;
+} */
+ .contact-wrap {
+	 padding: 15px;
+}
+
+#recu {
+    text-align: center;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 38%;
+}
+h1{
+    /*     padding: 20px;
+    /*    margin: 0 0 20px;
+     */    font-size: 30px;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: center;
+    }
+
+       h1 small{
+          font-size: 18px;
+          display: block;
+          text-transform: none;
+          font-weight: 300;
+          margin-top: 10px;
+        }
