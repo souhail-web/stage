@@ -48,3 +48,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('users', 'UsersController');
 
 });
+
+Route::namespace('User')->prefix('user')->name('user.')->group(function(){
+    Route::resource('users', 'UserController');
+
+});
