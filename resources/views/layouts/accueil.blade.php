@@ -1,4 +1,4 @@
-@include('layouts/navbar')
+@include('layouts/app')
 @include('layouts/banniere')
 
 

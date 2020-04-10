@@ -80,7 +80,7 @@
             <!-- Left Side Of Navbar -->
             <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                 <ul class="navbar-nav w-100 justify-content-center">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="http://127.0.0.1:8000/Articles" class="nav-link" >ARTICLES</a>
                     </li>
                     <li class="nav-item">
@@ -118,7 +118,16 @@
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
       </form>
-  </div>
+
+      @can('manage-users')
+      <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Gestion des utilisateurs </a>
+      @endcan
+
+      @can('modify-info')
+      <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Modifier mes informations </a>
+      @endcan
+
+    </div>
 </li>
 @endguest
 </ul>

@@ -47,4 +47,21 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    public function roles() {
+
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function isAdmin() {
+        //retourne true si l'utilisateur est un Admin et false sinon
+
+        return $this->roles()->where('name','admin')->first();
+    }
+
+    public function isUser() {
+        //retourne true si l'utilisateur est un User et false sinon
+
+        return $this->roles()->where('name','user')->first();
+    }
+
 }

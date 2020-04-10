@@ -1,5 +1,6 @@
 <?php
 
+use App\Contact;
 use Illuminate\Database\Seeder;
 
 class ContactTableSeeder extends Seeder
@@ -18,9 +19,9 @@ class ContactTableSeeder extends Seeder
     });
  */
 
-    factory(App\Contact::class, 10)->create();
+    factory(Contact::class, 10)->create();
 
- 
+
 
    /* factory(App\User::class, 10)->create() ;
      ->each(function ($user) {

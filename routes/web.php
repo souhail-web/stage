@@ -42,3 +42,9 @@ Route::get('/Login', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+/* Route::resource('/Admin', 'Admin\UsersController');
+ */
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('users', 'UsersController');
+
+});

@@ -1,5 +1,7 @@
 <?php
 
+use App\Role;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -17,14 +19,19 @@ class UsersTableSeeder extends Seeder
         factory(App\Post::class, 3)->create(['user_id' => $user->id]);
     });
  */
+    User::truncate();
+
 
     factory(App\User::class, 10)->create()->each(function ($user) {
-        //$user->posts()->save(factory(App\Post::class)->create());
+/*         $user->roles()->attach(2);
+ */        //$user->posts()->save(factory(App\Post::class)->create());
+        $user->roles()->attach(Role::where('name', 'user')->first());
         factory(App\Post::class, 3)->create(['user_id' => $user->id])->each(function($post){
         factory(App\Comment::class,5)->create(['post_id'=>$post->id]);
         });
         /*  factory(App\Comment::class,3)->create(['user_id' =>$user ->id,'post_id' =>random_int(1,10)]); */
      });
+
 
 
 
