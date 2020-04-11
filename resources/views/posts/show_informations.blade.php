@@ -46,12 +46,29 @@
 @section('commentaires')
 
 {{-- On itère sur chaque commentaire de l'article et on créé le commentaire --}}
-@foreach ($posts->comments as $post)
+@foreach ($posts->comments as $comment)
 
 <div class="usersComments">
-    <p id="userName"> {{ $post->comment_name }} </p>
-    <p class="comment-text"> {{ $post->comment_content }} </p>
-    <div class="comment-date"> {{ $post->comment_date }} </div>
+    <p id="userName"> {{ $comment->comment_name }} </p>
+    <p class="comment-text"> {{ $comment->comment_content }} </p>
+    <div class="comment-date"> {{ $comment->comment_date }} </div>
+
+
+    @can('delete-comment',$comment , $posts)
+
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      @can('edit-comment',$comment)   <a href="{{ route('comments.edit', $comment->id)}}" > <button class="btn btn-primary m-1">
+                Edit </button>
+        </a>
+    @endcan
+        <form method="post" action="{{ route('comments.destroy', $comment->id) }}" }>
+            @csrf @method('delete')
+            <button type="submit" class="btn btn-danger m-1">
+                Delete
+            </button>
+        </form>
+    </div>
+    @endcan
 </div>
 
 @endforeach

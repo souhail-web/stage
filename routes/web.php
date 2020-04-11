@@ -31,8 +31,8 @@ Route::post('Contact', 'ContactController@traitement');
 
 /* Route::get('/Articles/{id}', 'PostsController@show');
  */
-Route::post('/Articles/{id}', 'CommentController@traitement');
-
+/* Route::post('/Articles/{id}', 'CommentController@traitement');
+ */
 Route::get('/Login', 'HomeController@index');
 
 
@@ -49,6 +49,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
 
 });
 
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('posts', 'PostsController');
+
+});
+
 Route::namespace('User')->prefix('user')->name('user.')->group(function(){
     Route::resource('users', 'UserController');
 
@@ -56,5 +61,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function(){
 
 Route::namespace('Posts')->group(function(){
     Route::resource('posts', 'PostsController');
+
+});
+
+
+Route::namespace('Comments')->group(function(){
+    Route::resource('comments', 'CommentController');
 
 });

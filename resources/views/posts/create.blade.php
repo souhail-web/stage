@@ -29,7 +29,7 @@
                                 <label for="content" class="col-sm-12 text-center">Content</label>
                                  <div class="control">
                                     <textarea name="content" class="textarea w-100 p-3" placeholder="Content" minlength="5"
-                                       class="input w-100 p-3" maxlength="2000" required rows="10">{{ old('content') }}</textarea>
+                                       class="input w-100 p-3" required rows="10">{{ old('content') }}</textarea>
                                 </div>
                             </div>
 

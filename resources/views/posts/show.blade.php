@@ -1,5 +1,4 @@
 @include('layouts/app')
-@include('layouts/banniere')
 
 <head>
     <link type="text/css" rel="stylesheet" href={{asset('css/commentaire.css')}}>
@@ -20,7 +19,7 @@
         <div class="row">
             <div class="large-12 columns">
                 <div class="blog-post">
-                    <img class="thumbnail" id="imgArticle" src="https://placehold.it/850x350">
+                    <img class="thumbnail" id="imgArticle" src="https://picsum.photos/850/350">
                     {{-- Image de l'article--}}
                     <p>@yield('contenu')</p> {{-- Contenu de l'article--}}
                     <div id="dateArticle">
@@ -37,22 +36,18 @@
 
 
         @can('edit-article',$posts)
-        <form method="post" action="{{ route('posts.destroy', $posts->id) }}"}>
-            @csrf @method('delete')
-            <div class="field is-grouped">
-                <div class="control">
-                    <a href="{{ route('posts.edit', $posts->id)}}" class="button is-info is-outlined">
-                        Edit
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <a href="{{ route('posts.edit', $posts->id)}}"> <button class="btn btn-primary m-1">
+                            Edit </button>
                     </a>
-                </div>
-                <div class="control">
-                    <button type="submit" class="button is-danger is-outlined">
+                <form method="post" action="{{ route('posts.destroy', $posts->id) }}" }>
+                    @csrf @method('delete')
+                    <button type="submit" class="btn btn-danger m-1">
                         Delete
                     </button>
-                </div>
-            </div>
-        </form>
-@endcan
+            </form>
+        </div>
+        @endcan
 
         <br>
 
@@ -60,7 +55,7 @@
         <div class="comments">
 
             <div id="comments">
-                <h4>Commentaires</h4> {{-- Titre de la section commentaire --}}
+                <h4>Comments</h4> {{-- Titre de la section commentaire --}}
 
                 {{-- <div> <p> @yield('nbcommentaires') </p> </div> --}}
             </div>
@@ -73,71 +68,41 @@
 
             {{-- Ajout de commentaire --}}
 
-            <h4 class="text-center">Laissez un commentaire </h4>
+            <h4 class="text-center">Post a comment </h4>
 
 
 
             {{-- Formulaire de commentaire --}}
-            <form action="/Articles/@yield('id')" class="contact-form" method="POST">
-                {{ csrf_field() }}
+            <form method="post" action="{{ route('comments.store') }}">
 
 
-                {{-- Formulaire : nom --}}
-                <div class="col-sm-6">
-                    <div class="input-block" id="nomCommentaire">
-                        <label for="">Nom</label>
-                        <input name="commentaire_nom" type="text" class="form-control">
+                @csrf
+                @include('partials.errors')
 
-                        {{-- Affichage de l'erreur  --}}
-                        @if($errors->has('commentaire_nom'))
-                        <div class="error">
-                            <p>{{ $errors->first('commentaire_nom') }}</p>
-                        </div>
-                        @endif
+                <div class="form-group">
+                    <div class="control" style="float: left;width: 35%;">
+                    <label for="title" class="col-sm-12 text-center">Name</label>
+                    <input type="text" name="name" value="" class="input w-100 p-3" placeholder="Title" minlength="2" maxlength="100" required="">
 
                     </div>
-                </div>
 
+                    <div class="control" style="float: right;width: 60%;">
+                        <label for="title" class="col-sm-12 text-center">Email</label>
+                        <input type="email" name="email" value="" class="input w-100 p-3" placeholder="Title" minlength="5" maxlength="100" required="">
 
-                {{-- Formulaire : email --}}
-                <div class="col-sm-12">
-                    <div class="input-block" id="emailCommentaire">
-                        <label for="">Email</label>
-                        <input name="commentaire_email" type="text" class="form-control">
-
-                        {{-- Affichage de l'erreur  --}}
-                        @if($errors->has('commentaire_email'))
-                        <div class="error">
-                            <p>{{ $errors->first('commentaire_email') }}</p>
                         </div>
-                        @endif
 
+
+                    <label for="content" class="col-sm-12 text-center" style="clear: both;">Comment</label>
+                     <div class="control" style="clear: both;">
+                        <textarea name="content" class="textarea w-100 p-3" placeholder="Content" minlength="5" required="" rows="2"></textarea>
                     </div>
                 </div>
+                <input type="hidden" name="postID" value="{{ $posts->id }}">
 
 
-                {{-- Formulaire : contenu commentaire --}}
-                <div class="col-sm-12">
-                    <div class="input-block textarea" id="msgCommentaire">
-                        <label for="">Votre commentaire </label>
-                        <textarea name="commentaire_msg" rows="3" type="text" class="form-control"></textarea>
+                    <div class="text-center pb-3"><button type="submit" class="btn btn-primary"> Publish </button></div>
 
-                        {{-- Affichage de l'erreur  --}}
-                        @if($errors->has('commentaire_msg'))
-                        <div class="error">
-                            <p>{{ $errors->first('commentaire_msg') }}</p>
-                        </div>
-                        @endif
-
-                    </div>
-                </div>
-
-
-                {{-- Formulaire :bouton d'envoi --}}
-                <div class="col-sm-12" id="publier">
-                    <button class="square-button">Publier</button>
-                </div>
-                <br>
             </form>
         </div>
     </div>
@@ -151,7 +116,7 @@
 <script>
     //material contact form animation
 //material contact form animation
-$('.contact-form').find('.form-control').each(function() {
+/* $('.contact-form').find('.form-control').each(function() {
 var targetItem = $(this).parent();
 if ($(this).val()) {
 $(targetItem).find('label').css({
@@ -175,5 +140,6 @@ $(this).parent().find('label').animate({
   'fontSize': '18px'
 }, 300);
 }
-})
+})*/
 </script>
+

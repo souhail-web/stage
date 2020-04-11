@@ -51,7 +51,7 @@
             @foreach ( $posts as $post )
             <div class="row">
                 <div class="large-6 columns">
-                    <p><img src="https://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
+                    <p><img src="https://picsum.photos/600/370" alt="image for article"></p>
                 </div>
                 <div class="large-6 columns">
                     <h5><a href="{{ route('posts.show', $post->id) }}">{{ $post->post_title }}</a></h5>

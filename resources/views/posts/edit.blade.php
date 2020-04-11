@@ -29,7 +29,7 @@
                             <label for="content" class="col-sm-12 text-center">Content</label>
                             <div class="control">
                                 <textarea name="content" class="textarea w-100 p-3" placeholder="Content" minlength="5"
-                                    maxlength="2000" required rows="10">{{ $post->post_content }}</textarea>
+                                   required rows="10">{{ $post->post_content }}</textarea>
 
                             </div>
                         </div>

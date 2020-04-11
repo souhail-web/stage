@@ -75,4 +75,11 @@ class User extends Authenticatable
 
         return ($this->id == $post->user_id);
     }
+
+    public function isCommentAuthor($comment) {
+        //retourne true si l'utilisateur est un User et false sinon
+
+        return ($this->email == $comment->comment_email);
+    }
+
 }

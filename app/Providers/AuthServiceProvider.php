@@ -27,13 +27,13 @@ class AuthServiceProvider extends ServiceProvider
 
 
 
-        Gate::define('manage-users',function($user){
+        Gate::define('manage-users', function ($user) {
             // permet aux administrateurs de gérer les utilisateurs
             return $user->isAdmin();
-         //   return $user->hasAnyRoles(['admin','auteur']); // si plusieurs roles on le droit voir vidéo 9 a 3:00
-        }) ;
+            //   return $user->hasAnyRoles(['admin','auteur']); // si plusieurs roles on le droit voir vidéo 9 a 3:00
+        });
 
-/*         Gate::define('edit-users',function($user){
+        /*         Gate::define('edit-users',function($user){
             return $user->isAdmin();
         }) ;
 
@@ -41,19 +41,29 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin();
         }) ; */
 
-        Gate::define('modify-info',function($user){
+        Gate::define('modify-info', function ($user) {
             // permet aux administrateurs de gérer les utilisateurs
             return $user->isUser();
-        }) ;
+        });
 
-        Gate::define('write-article',function($user){
+        Gate::define('write-article', function ($user) {
             // permet aux administrateurs de gérer les utilisateurs
-            return $user->hasAnyRoles(['admin','user']);
-                }) ;
+            return $user->hasAnyRoles(['admin', 'user']);
+        });
 
-        Gate::define('edit-article',function($user, $post){
-       // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
-          return (($user->isAuthor($post)) || $user->isAdmin());
-            }) ;
+        Gate::define('edit-article', function ($user, $post) {
+            // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
+            return (($user->isAuthor($post)) || $user->isAdmin());
+        });
+
+        Gate::define('edit-comment', function ($user, $comment) {
+            // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
+            return $user->isCommentAuthor($comment);
+        });
+
+        Gate::define('delete-comment', function ($user, $post) {
+            // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
+            return (($user->isAuthor($post)) || $user->isAdmin() || ($user->isCommentAuthor($post->comments())));
+        });
     }
 }

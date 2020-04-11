@@ -19,6 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/test.css')}}">
+
 </head>
 <body>
     <div id="app">
@@ -122,6 +124,8 @@
 
       @can('manage-users')
       <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Users management </a>
+      <a class="dropdown-item" href="{{ route('admin.posts.index') }}"> Posts management </a>
+
       @endcan
 
       @can('modify-info')

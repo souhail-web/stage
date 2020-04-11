@@ -21,7 +21,7 @@ class Post extends Model
    }
 
    public $table = 'posts';
-   public $fillable = ['user_id','post_date','post_content','post_title','post_status','post_name','post_type','post_category'];
+   public $fillable = ['id','user_id','post_date','post_content','post_title','post_status','post_name','post_type','post_category'];
 
 
 }
