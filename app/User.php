@@ -70,4 +70,9 @@ class User extends Authenticatable
         return $this->roles()->whereIn('name',$roles)->first();
     }
 
+    public function isAuthor($post) {
+        //retourne true si l'utilisateur est un User et false sinon
+
+        return ($this->id == $post->user_id);
+    }
 }

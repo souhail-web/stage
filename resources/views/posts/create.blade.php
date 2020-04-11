@@ -21,7 +21,7 @@
                                 <label for="title" class="col-sm-12 text-center">Title</label>
                                 <input type="text" name="title" value="{{ old('title') }}" class="input w-100 p-3"
                                     placeholder="Title" minlength="5" maxlength="100" required />
-                                <small id="emailHelp" class="form-text text-muted"> Max 100 caractères</small>
+                                <small class="form-text text-muted"> Max 100 caractères</small>
                                 </div>
 
 

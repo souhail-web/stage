@@ -51,5 +51,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasAnyRoles(['admin','user']);
                 }) ;
 
+        Gate::define('edit-article',function($user, $post){
+       // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
+          return (($user->isAuthor($post)) || $user->isAdmin());
+            }) ;
     }
 }

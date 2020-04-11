@@ -6,25 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-/*         $posts = Post::latest('post_date')->take(5)->get(); //get all posts
+        /*         $posts = Post::latest('post_date')->take(5)->get(); //get all posts
  */
-$posts=Post::orderBy('post_date','desc')->paginate(5);
+        $posts = Post::orderBy('post_date', 'desc')->paginate(5);
 
-return view('posts.index_informations',array(
-    'posts' => $posts
-));
-}
+        return view('posts.index_informations', array(
+            'posts' => $posts
+        ));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -45,17 +49,17 @@ return view('posts.index_informations',array(
     public function store(Request $request)
     {
 
-    // On valide les données envoyées
-   $request->validate([
-        'title' => 'required|string|unique:posts|min:5|max:100',
-        'content' => 'required|string|min:5|max:2000',
-    ]);
+        // On valide les données envoyées
+        $request->validate([
+            'title' => 'required|string|unique:posts|min:5|max:100',
+            'content' => 'required|string|min:5|max:2000',
+        ]);
 
 
-    // On créé le post correspondant
+        // On créé le post correspondant
 
-    $posts = Post::create([
-            'user_id' =>Auth::id(),
+        $posts = Post::create([
+            'user_id' => Auth::id(),
             'post_title' => request('title'),
             'post_content' => request('content'),
             'post_date' => now(),
@@ -67,10 +71,8 @@ return view('posts.index_informations',array(
         ]);
 
 
-    // On redirige l'utilisateur vers son post fraichement créé avec une notification de réussite (à finir)
-    return redirect()->route('posts.index'); /* ,[$posts->id]))->with('notification', 'Post created!'); */
-
-
+        // On redirige l'utilisateur vers son post fraichement créé avec une notification de réussite (à finir)
+        return redirect()->route('posts.show',$posts->id); /* ,[$posts->id]))->with('notification', 'Post created!'); */
     }
 
     /**
@@ -81,14 +83,14 @@ return view('posts.index_informations',array(
      */
     public function show(Post $post)
     {
-        $posts = \App\Post::where('id',$post->id)->first(); //get first post with post_nam == $post_name
+        $posts = Post::where('id', $post->id)->first(); //get first post with post_nam == $post_name
 
-        return view('posts/show_informations',compact('posts'));
+        return view('posts/show_informations', compact('posts'));
 
         // array( //Pass the post to the view
-          //   'posts' => $posts
-       // ));
-     }
+        //   'posts' => $posts
+        // ));
+    }
 
 
     /**
@@ -99,7 +101,7 @@ return view('posts.index_informations',array(
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -109,9 +111,31 @@ return view('posts.index_informations',array(
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, Post $post)
     {
-        //
+
+        // On valide les données envoyées
+        $request->validate([
+            'title' => 'required|string|unique:posts|min:5|max:100',
+            'content' => 'required|string|min:5|max:2000',
+        ]);
+
+
+        // On update le post correspondant
+
+        $posts = DB::table('posts')
+              ->where('id', $post->id)
+              ->update([
+            'post_title' => request('title'),
+            'post_content' => request('content'),
+
+        ]);
+
+
+
+        // On redirige l'utilisateur vers son post fraichement créé avec une notification de réussite (à finir)
+        return redirect()->route('posts.show',$post->id); /* ,[$posts->id]))->with('notification', 'Post created!'); */
     }
 
     /**

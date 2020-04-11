@@ -13,7 +13,7 @@
     <hr>
     <div class="container">
         <h4 class="text-center">@yield('titre') </h4>
-    <hr>
+        <hr>
 
 
         {{-- Mise en page de l'article --}}
@@ -36,6 +36,26 @@
         <br> {{-- Saut de ligne pour aérer --}}
 
 
+        @can('edit-article',$posts)
+        <form method="post" {{-- action="{{ route('posts.destroy', [$post->slug]) }}" --}}>
+            @csrf @method('delete')
+            <div class="field is-grouped">
+                <div class="control">
+                    <a href="{{ route('posts.edit', $posts->id)}}" class="button is-info is-outlined">
+                        Edit
+                    </a>
+                </div>
+                <div class="control">
+                    <button type="submit" class="button is-danger is-outlined">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </form>
+@endcan
+
+        <br>
+
         {{-- Mise en page des commentaires --}}
         <div class="comments">
 
@@ -53,7 +73,7 @@
 
             {{-- Ajout de commentaire --}}
 
-                <h4 class="text-center">Laissez un commentaire </h4>
+            <h4 class="text-center">Laissez un commentaire </h4>
 
 
 
