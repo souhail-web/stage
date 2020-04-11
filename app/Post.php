@@ -20,4 +20,8 @@ class Post extends Model
        return $this->hasMany('App\Comment');
    }
 
+   public $table = 'posts';
+   public $fillable = ['user_id','post_date','post_content','post_title','post_status','post_name','post_type','post_category'];
+
+
 }

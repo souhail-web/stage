@@ -45,5 +45,11 @@ class AuthServiceProvider extends ServiceProvider
             // permet aux administrateurs de gérer les utilisateurs
             return $user->isUser();
         }) ;
+
+        Gate::define('write-article',function($user){
+            // permet aux administrateurs de gérer les utilisateurs
+            return $user->hasAnyRoles(['admin','user']);
+                }) ;
+
     }
 }

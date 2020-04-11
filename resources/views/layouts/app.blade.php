@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -81,7 +82,7 @@
             <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                 <ul class="navbar-nav w-100 justify-content-center">
                     <li class="nav-item">
-                        <a href="http://127.0.0.1:8000/Articles" class="nav-link" >ARTICLES</a>
+                        <a href="{{ route('posts.index') }}" class="nav-link" >ARTICLES</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://127.0.0.1:8000/" >ABOUT</a>
@@ -120,11 +121,15 @@
       </form>
 
       @can('manage-users')
-      <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Gestion des utilisateurs </a>
+      <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Users management </a>
       @endcan
 
       @can('modify-info')
-      <a class="dropdown-item" href="{{ route('user.users.edit', Auth::user()->id) }}"> Modifier mes informations </a>
+      <a class="dropdown-item" href="{{ route('user.users.edit', Auth::user()->id) }}"> Modify informations </a>
+      @endcan
+
+      @can('write-article')
+      <a class="dropdown-item" href="{{ route('posts.create') }}"> Write an article </a>
       @endcan
 
     </div>

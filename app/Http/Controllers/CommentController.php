@@ -28,6 +28,6 @@ class CommentController extends Controller
 
         $posts = \App\Post::where('id', $id)->first(); //get first post with post_nam == $post_name
 
-        return view('posts/single', compact('posts'));
+        return view('posts/show', compact('posts'));
     }
 }

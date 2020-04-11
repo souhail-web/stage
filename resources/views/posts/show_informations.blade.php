@@ -1,4 +1,4 @@
-@extends('layouts/posts')
+@extends('posts/show')
 
 {{-- On définit le titre de la page avec le titre de l'article --}}
 @section('titrePage')

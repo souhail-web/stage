@@ -54,7 +54,7 @@
                     <p><img src="https://placehold.it/600x370&amp;text=Look at me!" alt="image for article"></p>
                 </div>
                 <div class="large-6 columns">
-                    <h5><a href="http://127.0.0.1:8000/Articles/{{ $post->id }}">{{ $post->post_title }}</a></h5>
+                    <h5><a href="{{ route('posts.show', $post->id) }}">{{ $post->post_title }}</a></h5>
                     <p>
                         <span><i class="fi-torso"> By {{ $post->author->name }} - </i></span>
                         <span><i class="fi-calendar"> {{ \Carbon\Carbon::parse($post->post_date)->format('j F,Y') }}
@@ -63,13 +63,13 @@
                     </p>
                     <p class="paragraphe"> <?php echo trunc($post->post_content,60) ?> </p>
                     <br>
-                    <p id="suite"><a href="http://127.0.0.1:8000/Articles/{{ $post->id }}"> Lire la suite </a></p>
+                    <p id="suite"><a href="http://127.0.0.1:8000/Articles/{{ $post->id }}"> Read more </a></p>
 
                     <p id="suite"> <i class="fi-torso">
                         <?php if (count($post->comments) > 1)
-                                echo "<a href='http://127.0.0.1:8000/Articles/$post->id/#comments'>".(count($post->comments))." Commentaires </a>" ;
+                                echo "<a href='http://127.0.0.1:8000/Articles/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
                               else
-                                echo (count($post->comments))." Commentaire "?>
+                                echo (count($post->comments))." Comment "?>
                     </i></p>
                 </div>
             </div>
