@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Post;
 
 class CommentController extends Controller
 {
@@ -26,8 +27,6 @@ class CommentController extends Controller
             'comment_date' => now(),
         ]);
 
-        $posts = \App\Post::where('id', $id)->first(); //get first post with post_nam == $post_name
 
-        return view('posts/show', compact('posts'));
-    }
+        return redirect()->route('posts.show',$id);    }
 }

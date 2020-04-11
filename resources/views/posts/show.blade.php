@@ -37,7 +37,7 @@
 
 
         @can('edit-article',$posts)
-        <form method="post" {{-- action="{{ route('posts.destroy', [$post->slug]) }}" --}}>
+        <form method="post" action="{{ route('posts.destroy', $posts->id) }}"}>
             @csrf @method('delete')
             <div class="field is-grouped">
                 <div class="control">
