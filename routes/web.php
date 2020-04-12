@@ -21,12 +21,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('accueil');
 
 
-Route::get('About','HomeController@indexAbout');
+Route::get('About','HomeController@indexAbout')->name('aboutPage');
 
-Route::get('Contact','ContactController@index');
+
+Route::get('Contact','ContactController@index')->name('contactPage');
 
 Route::post('Contact', 'ContactController@traitement');
 

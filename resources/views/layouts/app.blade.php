@@ -87,10 +87,10 @@
                         <a href="{{ route('posts.index') }}" class="nav-link" >ARTICLES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:8000/About" >ABOUT</a>
+                        <a class="nav-link" href="{{ route('aboutPage') }}" >ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://127.0.0.1:8000/Contact" class="nav-link" >CONTACT</a>
+                        <a class="nav-link" href="{{ route('contactPage') }}" >CONTACT</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">

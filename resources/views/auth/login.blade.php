@@ -63,15 +63,19 @@
                                     </a>
                                 @endif
 
-                                <a href="{{ url('auth/google') }}" style="margin-top: 20px;" class="btn btn-lg btn-success btn-block">
+                            </div>
+                                <div class="col-md-4 offset-md-4 text-center">
 
-                                    <strong>Login With Google</strong>
+                                <a href="{{ url('auth/google') }}" style="margin-top: 20px;">
+
+                                    <button class="btn btn-lg btn-success btn-block mt-4" >Login With Google</button>
 
                                   </a>
 
-                                  <a href="{{ url('/auth/github') }}" style="margin-top: 20px;" class="btn btn-lg btn-success btn-block">
-                                    <strong>Login With Github</strong>
+                                  <a href="{{ url('/auth/github') }}">
+                                    <button class="btn btn-lg btn-success btn-block mt-2" >Login With Github</button>
                                 </a>
+                                </div>
 
                             </div>
                         </div>
@@ -80,5 +84,5 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection

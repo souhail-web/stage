@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Role;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 use App\User;
-use Laravel\Socialite\Facades\Socialite;
 
 
 class GoogleController extends Controller
@@ -33,10 +34,10 @@ class GoogleController extends Controller
 
             $googleUser = Socialite::driver('google')->stateless()->user();
 
-
             $existUser = User::where('email', $googleUser->email)->first();
           // OK $finduser = User::where('email', $googleUser->email)->first();
          //   $finduser = User::where('google_id', $googleUser->id)->first();
+
 
             if($existUser){
 
@@ -53,35 +54,23 @@ class GoogleController extends Controller
                     'password' => encrypt('123456dummy'),
                 ]);
 
+                $role = Role::select('id')->where('name','user')->first();
+
+                $googleUser->roles()->attach($role);
+
+
                 $googleUser->save();
 
                 Auth::login($googleUser);
 
                 return redirect('/home');
-
-
-               /*  $newUser = new User;
-                $newUser->name = $user->name;
-                $newUser->email = $user->email;
-                $newUser->google_id = $user->id;
-                $newUser->password = md5(rand(1,10000));
-                $newUser->save();
-                Auth::loginUsingId($user->id); */
-
-           /*     $user = new User;
-                $user->name = $googleUser->name;
-                $user->email = $googleUser->email;
-                $user->google_id = $googleUser->id;
-                $user->password = md5(rand(1,10000));
-                $user->save();
-                Auth::loginUsingId($user->id); */
             }
-          //  return redirect()->to('/home');
+
 
 
         } catch (Exception $e) {
-           //  dd($e->getMessage());
-             @dd(Socialite::driver('google')->user());
+            dd($e->getMessage());
+
          /*   return 'error'; */
         }
     }

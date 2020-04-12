@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-0 text-center">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
@@ -69,6 +69,19 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="col-md-5 offset-md-4">
+
+                        <a href="{{ url('auth/google') }}" style="margin-top: 20px;">
+
+                            <button class="btn btn-lg btn-success btn-block mt-4" >Register With Google</button>
+
+                          </a>
+
+                          <a href="{{ url('/auth/github') }}">
+                            <button class="btn btn-lg btn-success btn-block mt-2" >Register With Github</button>
+                        </a>
+                        </div>
                 </div>
             </div>
         </div>

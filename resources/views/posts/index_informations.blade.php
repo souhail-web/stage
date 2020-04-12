@@ -35,7 +35,7 @@
 
           <p id="suite"> <i class="fi-torso">
             <?php if (count($post->comments) > 1)
-                    echo "<a href='http://127.0.0.1:8000/posts/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
+                    echo "<a href='http://localhost:8000/posts/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
                   else
                     echo (count($post->comments))." Comment "?>
         </i></p>

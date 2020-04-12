@@ -11,5 +11,5 @@
 </style>
 
 <div class="banniere">
-    <a href="http://127.0.0.1:8000"><img src="{{asset('assets/banniere2.png')}}" alt="youMAKEfashion"></a>
+    <a  href="{{ route('accueil') }}"><img src="{{asset('assets/banniere2.png')}}" alt="youMAKEfashion"></a>
 </div>
