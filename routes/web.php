@@ -67,3 +67,12 @@ Route::namespace('Comments')->group(function(){
     Route::resource('comments', 'CommentController');
 
 });
+
+
+//----- Redirection lors d'une connexion avec google
+Route::get('/auth/google', 'Auth\GoogleController@redirect');
+Route::get('/auth/google/callback', 'Auth\GoogleController@callback');
+
+//----- Redirection lors d'une connexion avec github
+Route::get('/auth/github', 'Auth\GithubController@redirect');
+Route::get('/auth/github/callback', 'Auth\GithubController@callback');
