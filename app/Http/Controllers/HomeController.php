@@ -22,6 +22,11 @@ class HomeController extends Controller
 
 
     }
+
+    function indexAbout() {
+
+        return view('about');
+    }
 }
 
 

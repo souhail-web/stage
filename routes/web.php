@@ -23,27 +23,20 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-/* Route::get('Articles', 'PostsController@index' ) ;
- */
+
+Route::get('About','HomeController@indexAbout');
+
 Route::get('Contact','ContactController@index');
 
 Route::post('Contact', 'ContactController@traitement');
 
-/* Route::get('/Articles/{id}', 'PostsController@show');
- */
-/* Route::post('/Articles/{id}', 'CommentController@traitement');
- */
+
 Route::get('/Login', 'HomeController@index');
 
-
-//Auth::routes(['register' => false]);
-//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-/* Route::resource('/Admin', 'Admin\UsersController');
- */
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     Route::resource('users', 'UsersController');
 

@@ -31,11 +31,11 @@
           </p>
           <p class="paragraphe"> <?php echo trunc($post->post_content,60) ?> </p>
           <br>
-          <p id="suite"><a href="http://127.0.0.1:8000/Articles/{{ $post->id }}"> Read more </a></p>
+          <p id="suite"><a href="{{ route('posts.show', $post->id) }}"> Read more </a></p>
 
           <p id="suite"> <i class="fi-torso">
             <?php if (count($post->comments) > 1)
-                    echo "<a href='http://127.0.0.1:8000/Articles/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
+                    echo "<a href='http://127.0.0.1:8000/posts/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
                   else
                     echo (count($post->comments))." Comment "?>
         </i></p>
