@@ -61,9 +61,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isCommentAuthor($comment);
         });
 
-        Gate::define('delete-comment', function ($user, $post) {
+        Gate::define('delete-comment', function ($user, $comment) {
             // permet aux administrateurs et à l'auteur du post de pouvoir editer son article
-            return (($user->isAuthor($post)) || $user->isAdmin() || ($user->isCommentAuthor($post->comments())));
+
+            return (/* ($user->isAuthor($comment->article)) ||*/  $user->isAdmin() ||  ($user->isCommentAuthor($comment)));
         });
     }
 }

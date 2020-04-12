@@ -2,8 +2,8 @@
 @include('layouts/banniere')
 
 
-<hr>
 <div class="container">
+<hr>
     <h4 style="margin: 0;" class="text-center">ARTICLES</h4>
     <hr>
 

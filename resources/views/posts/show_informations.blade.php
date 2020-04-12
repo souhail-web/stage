@@ -54,21 +54,34 @@
     <div class="comment-date"> {{ $comment->comment_date }} </div>
 
 
-    @can('delete-comment',$comment , $posts)
 
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       @can('edit-comment',$comment)   <a href="{{ route('comments.edit', $comment->id)}}" > <button class="btn btn-primary m-1">
                 Edit </button>
         </a>
     @endcan
-        <form method="post" action="{{ route('comments.destroy', $comment->id) }}" }>
+
+    @can('delete-comment',$comment)
+
+        <form method="post" action="{{ route('comments.destroy', $comment->id) }}">
             @csrf @method('delete')
             <button type="submit" class="btn btn-danger m-1">
                 Delete
             </button>
         </form>
-    </div>
     @endcan
+
+    @if(Auth::check() && Auth::user()->id == $posts->user_id)
+    <form method="post" action="{{ route('comments.destroy', $comment->id) }}">
+        @csrf @method('delete')
+        <button type="submit" class="btn btn-danger m-1">
+            Delete
+        </button>
+    </form>
+    @endif
+
+</div>
+
 </div>
 
 @endforeach

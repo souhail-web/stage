@@ -6,7 +6,6 @@
 
         margin-bottom: 0px;
         margin-left: auto;
-        padding-top: 20px;
         padding-bottom: 10px;
     }
 </style>

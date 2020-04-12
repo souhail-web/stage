@@ -9,9 +9,9 @@
 <body>
 
     {{-- Titre d'accueil --}}
-    <hr>
     <div class="container">
-        <h4 class="text-center">@yield('titre') </h4>
+         <hr>
+   <h4 class="text-center">@yield('titre') </h4>
         <hr>
 
 
@@ -82,20 +82,20 @@
                 <div class="form-group">
                     <div class="control" style="float: left;width: 35%;">
                     <label for="title" class="col-sm-12 text-center">Name</label>
-                    <input type="text" name="name" value="" class="input w-100 p-3" placeholder="Title" minlength="2" maxlength="100" required="">
+                    <input type="text" name="name" value="" class="input w-100 p-3" placeholder="name" minlength="2" maxlength="100" required="">
 
                     </div>
 
                     <div class="control" style="float: right;width: 60%;">
                         <label for="title" class="col-sm-12 text-center">Email</label>
-                        <input type="email" name="email" value="" class="input w-100 p-3" placeholder="Title" minlength="5" maxlength="100" required="">
+                        <input type="email" name="email" value="" class="input w-100 p-3" placeholder="email" minlength="5" maxlength="100" required="">
 
                         </div>
 
 
                     <label for="content" class="col-sm-12 text-center" style="clear: both;">Comment</label>
                      <div class="control" style="clear: both;">
-                        <textarea name="content" class="textarea w-100 p-3" placeholder="Content" minlength="5" required="" rows="2"></textarea>
+                        <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required="" rows="2"></textarea>
                     </div>
                 </div>
                 <input type="hidden" name="postID" value="{{ $posts->id }}">

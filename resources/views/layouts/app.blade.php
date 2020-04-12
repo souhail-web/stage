@@ -19,8 +19,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/test.css')}}">
-
+{{--     <link rel="stylesheet" href="{{asset('css/test.css')}}">
+ --}}
 </head>
 <body>
     <div id="app">
@@ -125,16 +125,18 @@
       @can('manage-users')
       <a class="dropdown-item" href="{{ route('admin.users.index') }}"> Users management </a>
       <a class="dropdown-item" href="{{ route('admin.posts.index') }}"> Posts management </a>
+      <a class="dropdown-item" href="{{ route('posts.create') }}"> Write an article </a>
+
 
       @endcan
 
       @can('modify-info')
       <a class="dropdown-item" href="{{ route('user.users.edit', Auth::user()->id) }}"> Modify informations </a>
+      <a class="dropdown-item" href="{{ route('user.posts.index') }}"> Posts management </a>
+      <a class="dropdown-item" href="{{ route('posts.create') }}"> Write an article </a>
+
       @endcan
 
-      @can('write-article')
-      <a class="dropdown-item" href="{{ route('posts.create') }}"> Write an article </a>
-      @endcan
 
     </div>
 </li>

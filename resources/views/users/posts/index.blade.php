@@ -10,21 +10,25 @@
 
                 <div class="card-body">
 
+
+
+
                     @if($posts->isEmpty())
                     <div class="col text-center">
-                        <p> No posts published </p>
+                    <p> You didn't wrote any article. Do you want to write one ? </p>
+                    <a href="{{ route('posts.create') }}">
+                        <button class="btn btn-primary m-1 ">Write an article </button></a>
                     </div>
                     @else
 
                     <table class="table table-striped ">
                         <thead>
                             <tr>
-                                <th scope="col"> # </th>
-                                <th scope="col"> Author </th>
+
                                 <th scope="col"> Date </th>
                                 <th scope="col"> Title </th>
                                 {{--                                 <th scope="col"> Content </th>
- --}} <th scope="col"> Status </th>
+         --}} <th scope="col"> Status </th>
                                 <th scope="col"> Type </th>
                                 <th scope="col"> Category </th>
                                 <th scope="col"> Actions </th>
@@ -34,11 +38,10 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($posts as $post )
+                    @foreach ($posts as $post )
+
                             <tr>
-                                <th scope="row"> {{ $post->id}} </th>
-                                <td> {{ $post->author->name }}</td>
-                                <td> {{ $post->post_date}} </td>
+                                <th scope="row"> {{ $post->post_date}} </td>
                                 <td> {{ $post->post_title}} </td>
                                 {{--                                 <td> {{ $post->post_content}} </td>
                                 --}} <td> {{ $post->post_status}} </td>
@@ -47,12 +50,12 @@
 
                                 <td>
                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <a href="{{route('admin.posts.show',$post->id)}}">
+                                        <a href="{{route('user.posts.show',$post->id)}}">
                                             <button class="btn btn-primary m-1">Show </button></a>
-                                        <a href="{{route('admin.posts.edit',$post->id)}}">
+                                        <a href="{{route('user.posts.edit',$post->id)}}">
                                             <button class="btn btn-secondary m-1">Edit </button></a>
 
-                                        <form action="{{route('admin.posts.destroy',$post->id)}}" method="post"
+                                        <form action="{{route('user.posts.destroy',$post->id)}}" method="post"
                                             class="d-inline">
                                             @csrf
                                             @method('DELETE')
@@ -61,11 +64,11 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                            @endif
 
-                    @endforeach
-                </tbody>
-            </table>
-                    @endif
 
                 </div>
 

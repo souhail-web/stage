@@ -59,6 +59,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function(){
 
 });
 
+Route::namespace('User')->prefix('user')->name('user.')->group(function(){
+    Route::resource('posts', 'PostsController');
+
+});
+
 Route::namespace('Posts')->group(function(){
     Route::resource('posts', 'PostsController');
 

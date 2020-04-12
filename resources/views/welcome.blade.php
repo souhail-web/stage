@@ -49,6 +49,7 @@
         <article>
 
             @foreach ( $posts as $post )
+
             <div class="row">
                 <div class="large-6 columns">
                     <p><img src="https://picsum.photos/600/370" alt="image for article"></p>
