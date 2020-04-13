@@ -7,6 +7,7 @@ use App\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
@@ -41,22 +42,40 @@ class CommentController extends Controller
     {  // traitement du formulaire
 
 
+        if(Auth::check()){
         // on verifie que les données insérées sont correctes
         $request->validate([
-            'name' => 'required|string|unique:posts|min:2|max:100',
-            'email' => ['required', 'email'],
             'content' => ['required', 'string'],
         ]);
 
         // on créé le commentaire dans la table correspondante
          $comment = Comment::create([
             'post_id' => $request->postID,
-            'comment_name' => $request->name,
-            'comment_email' => $request->email,
+            'comment_name' => Auth::user()->name,
+            'comment_email' => Auth::user()->email,
             'comment_content' => $request->content,
             'comment_date' => now(),
         ]);
+         }
+        else {
 
+ // on verifie que les données insérées sont correctes
+ $request->validate([
+    'name' => 'required|string|unique:posts|min:2|max:100',
+    'email' => ['required', 'email'],
+    'content' => ['required', 'string'],
+]);
+
+// on créé le commentaire dans la table correspondante
+ $comment = Comment::create([
+    'post_id' => $request->postID,
+    'comment_name' => $request->name,
+    'comment_email' => $request->email,
+    'comment_content' => $request->content,
+    'comment_date' => now(),
+]);
+
+         }
 
         return redirect()->route('posts.show',$request->postID);
 }

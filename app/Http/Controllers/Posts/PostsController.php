@@ -25,7 +25,7 @@ class PostsController extends Controller
  */
         $posts = Post::orderBy('post_date', 'desc')->paginate(5);
 
-        return view('posts.index_informations', array(
+        return view('posts.index', array(
             'posts' => $posts
         ));
     }

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 });
  */
 
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('accueil');
@@ -52,6 +53,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function(){
     Route::resource('users', 'UserController');
 
 });
+
+Route::get('/user/password/{user}','User\UserController@password')->name('user.users.password');
+Route::put('/user/password/{user}','User\UserController@password_store')->name('user.users.password_store');
+
+
 
 Route::namespace('User')->prefix('user')->name('user.')->group(function(){
     Route::resource('posts', 'PostsController');

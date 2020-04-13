@@ -1,5 +1,4 @@
-@include('layouts/main')
-@include('layouts/navbar')
+@include('layouts/app')
 <link type="text/css" rel="stylesheet" href={{asset('css/formulaire.css')}}>
 
 <body>

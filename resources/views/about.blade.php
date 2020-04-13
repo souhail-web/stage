@@ -9,7 +9,8 @@
 
 <body>
 
-    {{-- Titre d'accueil --}}
+    <main class="py-4">
+
     <div class="container">
         <hr>
         <h4 class="text-center">ABOUT </h4>
@@ -89,5 +90,5 @@
                 </div>
             </div>
         </div>
-
+    </main>
         <br> {{-- Saut de ligne pour aérer --}}

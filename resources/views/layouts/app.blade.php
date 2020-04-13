@@ -131,7 +131,7 @@
       @endcan
 
       @can('modify-info')
-      <a class="dropdown-item" href="{{ route('user.users.edit', Auth::user()->id) }}"> Modify informations </a>
+      <a class="dropdown-item" href="{{ route('user.users.index') }}"> My informations </a>
       <a class="dropdown-item" href="{{ route('user.posts.index') }}"> Posts management </a>
       <a class="dropdown-item" href="{{ route('posts.create') }}"> Write an article </a>
 

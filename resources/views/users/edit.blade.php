@@ -78,7 +78,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+{{--                         <div class="form-group row">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -105,7 +105,7 @@
                                     name="password_confirmation" autocomplete="new-password" confirmed
                                     value="">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary"> Modifier </button>
@@ -113,31 +113,9 @@
                 </div>
             </div>
 
-            <div class="text-right">
 
-{{--                 <button onclick="confirmer()" class="btn btn-danger  mt-4"> Supprimer mon compte </button>
- --}}                {{-- <a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{route('user.users.destroy',$users->id)}}">Supprimer mon compte</a> --}}
-
- <form action="{{route('user.users.destroy',$users->id)}}" method="post" class="d-inline">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger"> Supprimer </button>
-</form>
-            </div>
 
         </div>
     </div>
 </div>
 @endsection
-
- <script>
-/*         function confirmer(){
-        var res = confirm("Êtes-vous sûr de vouloir supprimer votre compte ? \n \nVous perdrez tous les articles et commentaires que vous avez publiés. \n");
-        if(res){
-            // Mettez ici la logique de suppression
-        }
-    } */
-
-   if(document.getElementById('password') !== null)
-   document.getElementById('password').setAttribute("required",true) ;
-</script>

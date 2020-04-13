@@ -25,11 +25,13 @@ class UserController extends Controller
     public function index()
     {
 
-/*     $users = User::where('id', Auth::user()->id)->first();
+     $users = User::where('id', Auth::user()->id)->first();
 
-   return view('users.index', array(
+   return view('users.informations', array(
                 'users'=>$users
-        )) ; */
+        )) ;
+
+
    }
 
     /**
@@ -85,6 +87,29 @@ class UserController extends Controller
              )) ;
     }
 
+    public function password(User $user)
+    {
+        return view('users.password',['user' => $user]);
+    }
+
+    public function password_store(Request $request, User $user)
+    {
+        $password = $request->password;
+        $confirm_password = $request->confirm_password;
+
+        request()->validate([
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        if ($password !== null)
+            $user->password = bcrypt($password);
+
+
+        $user->save();
+
+        return redirect()->route('user.users.index');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -105,7 +130,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('http://127.0.0.1:8000');
+        return redirect()->route('user.users.index');
     }
 
     /**
@@ -120,7 +145,7 @@ class UserController extends Controller
         $user->roles()->detach();
         $user->delete();
 
-        return redirect('http://127.0.0.1:8000');
+        return redirect()->route('accueil');
 
     }
 }

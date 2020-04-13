@@ -75,9 +75,27 @@
             {{-- Formulaire de commentaire --}}
             <form method="post" action="{{ route('comments.store') }}">
 
+    @csrf
+                    @include('partials.errors')
 
-                @csrf
-                @include('partials.errors')
+
+                @if(Auth::check())
+
+                <label for="content" class="col-sm-12 text-center mt-5" style="clear: both;">Comment</label>
+                <div class="control" style="clear: both;">
+                   <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required="" rows="2"></textarea>
+               </div>
+           </div>
+           <input type="hidden" name="postID" value="{{ $posts->id }}">
+
+
+               <div class="text-center pb-3"><button type="submit" class="btn btn-primary"> Publish </button></div>
+
+       </form>
+
+
+       @else
+
 
                 <div class="form-group">
                     <div class="control" style="float: left;width: 35%;">
@@ -93,6 +111,7 @@
                         </div>
 
 
+
                     <label for="content" class="col-sm-12 text-center" style="clear: both;">Comment</label>
                      <div class="control" style="clear: both;">
                         <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required="" rows="2"></textarea>
@@ -104,6 +123,7 @@
                     <div class="text-center pb-3"><button type="submit" class="btn btn-primary"> Publish </button></div>
 
             </form>
+            @endif
         </div>
     </div>
 

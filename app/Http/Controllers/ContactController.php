@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Contact;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -18,25 +19,43 @@ class ContactController extends Controller
     public function traitement()
     // traitement du formulaire
     {
+
+        if(Auth::check()) {
         // on verifie que les données insérées sont correctes
         request()->validate([
-            'contact_nom' => ['required', 'string'],
-            'contact_prenom' => ['required', 'string'],
-            'contact_email' => ['required', 'email'],
-            'contact_objet' => ['required', 'string'],
-            'contact_msg' => ['required', 'string'],
+            'subject' => ['required', 'string'],
+            'content' => ['required', 'string'],
         ]);
 
         // on créé le contact dans la table correspondante
         $contact = Contact::create([
-            'contact_name' => (request('contact_nom')." ".request('contact_prenom')),
-            'contact_email' => request('contact_email'),
-            'contact_subject' => request('contact_objet'),
-            'contact_message' => request( 'contact_msg'),
+            'contact_name' =>Auth::user()->name,
+            'contact_email' => Auth::user()->email,
+            'contact_subject' => request('subject'),
+            'contact_message' => request( 'content'),
             'contact_date' => now(),
         ]);
 
+        } else {
 
+                    // on verifie que les données insérées sont correctes
+        request()->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'subject' => ['required', 'string'],
+            'content' => ['required', 'string'],
+        ]);
+
+        // on créé le contact dans la table correspondante
+        $contact = Contact::create([
+            'contact_name' => request('name'),
+            'contact_email' => request('email'),
+            'contact_subject' => request('subject'),
+            'contact_message' => request( 'content'),
+            'contact_date' => now(),
+        ]);
+
+        }
 
         return view('contact_recu');
     }
