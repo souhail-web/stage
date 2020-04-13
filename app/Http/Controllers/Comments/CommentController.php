@@ -64,6 +64,7 @@ class CommentController extends Controller
     'name' => 'required|string|unique:posts|min:2|max:100',
     'email' => ['required', 'email'],
     'content' => ['required', 'string'],
+    'g-recaptcha-response' => 'required|captcha'
 ]);
 
 // on créé le commentaire dans la table correspondante
