@@ -1,101 +1,83 @@
 @extends('layouts.app')
 
+    <!-- Styles -->
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <form method="POST" action="{{ route('login') }}" id="login-form">
+        @csrf
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <div class="heading">Login to laravel blog</div>
 
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+        {{-- Partie gauche --}}
+        <div class="left">
 
-                        <div class="form-group row">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="current-password">
+            {{-- Email --}}
+            <label for="email">Email</label> <br />
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+            {{-- Affichage de l'erreur --}}
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                        {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+            {{-- Password --}}
+            <label for="password">Password</label> <br />
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                name="password" required autocomplete="current-password">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+            {{-- Affichage de l'erreur --}}
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
 
-                                @if (Route::has('password.request'))
+
+            {{-- Envoi --}}
+            <input type="submit" value="Login" />
+
+            {{--  @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                                @endif
+            {{ __('Forgot Your Password?') }}
+            </a>
+            @endif --}}
 
-                            </div>
-
-
-                        </div>
-                </div>
-                </form>
-                <div class="col-md-4 offset-md-4 text-center">
-
-                    <a href="{{ url('auth/google') }}" style="margin-top: 20px;">
-
-                        <button class="btn btn-lg btn-success btn-block mt-2">Login With Google</button>
-
-                    </a>
-
-                    <a href="{{ url('/auth/facebook') }}">
-                        <button class="btn btn-lg btn-success btn-block mt-2 ">Login With Facebook</button>
-                    </a>
-
-                    <a href="{{ url('/auth/github') }}">
-                        <button class="btn btn-lg btn-success btn-block mt-2 mb-4">Login With Github</button>
-                    </a>
-
-
-                </div>
-            </div>
         </div>
-    </div>
+
+        {{-- Partie droite --}}
+        <div class="right">
+            <div class="connect">Connect with</div>
+
+            {{-- Facebook --}}
+            <a href="{{ url('/auth/facebook') }}" class="facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a> <br />
+
+            {{-- Github --}}
+            <a href="{{ url('/auth/github') }}" class="github">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a> <br />
+
+            {{-- Google --}}
+            <a href="{{ url('auth/google') }}" class="google">
+                <i class="fa fa-google" aria-hidden="true"></i>
+            </a>
+        </div>
+
+
+    </form>
 </div>
 
 @endsection

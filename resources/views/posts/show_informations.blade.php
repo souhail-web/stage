@@ -63,15 +63,7 @@
       @endcan
 
       {{-- Supression du commentaire si les parametres utilisateur l'y autorise --}}
-    @can('delete-comment',$comment)
 
-        <form method="post" action="{{ route('comments.destroy', $comment->id) }}">
-            @csrf @method('delete')
-            <button type="submit" class="btn btn-danger m-1">
-                Delete
-            </button>
-        </form>
-    @endcan
 
 
     @if(Auth::check() && Auth::user()->id == $posts->user_id)
@@ -81,6 +73,17 @@
             Delete
         </button>
     </form>
+
+    @else
+    @can('delete-comment',$comment)
+
+    <form method="post" action="{{ route('comments.destroy', $comment->id) }}">
+        @csrf @method('delete')
+        <button type="submit" class="btn btn-danger m-1">
+            Delete
+        </button>
+    </form>
+@endcan
     @endif
 
 </div>
