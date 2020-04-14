@@ -84,3 +84,7 @@ Route::get('/auth/google/callback', 'Auth\GoogleController@callback');
 //----- Redirection lors d'une connexion avec github ------//
 Route::get('/auth/github', 'Auth\GithubController@redirect');
 Route::get('/auth/github/callback', 'Auth\GithubController@callback');
+
+//----- Redirection lors d'une connexion avec facebook ------//
+Route::get('/auth/facebook', 'Auth\FacebookController@redirect');
+Route::get('/auth/facebook/callback', 'Auth\FacebookController@callback');

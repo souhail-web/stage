@@ -42,4 +42,10 @@ return [
         'redirect' => 'http://localhost:8000/auth/github/callback',
     ],
 
+    'facebook' => [
+        'client_id' => '687437555337291',
+        'client_secret' => 'fd09efad61e763d220a02c4092a6367c',
+        'redirect' => 'http://localhost:8000/auth/facebook/callback',
+    ],
+
 ];

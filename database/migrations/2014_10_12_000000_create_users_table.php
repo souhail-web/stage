@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             /* SOCIALITE */
             $table->string('google_id')->nullable();
             $table->string('github_id')->nullable();
+            $table->string('facebook_id')->nullable();
             /*                          */
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

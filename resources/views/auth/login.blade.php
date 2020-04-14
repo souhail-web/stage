@@ -83,9 +83,15 @@
 
                     </a>
 
+                    <a href="{{ url('/auth/facebook') }}">
+                        <button class="btn btn-lg btn-success btn-block mt-2 ">Login With Facebook</button>
+                    </a>
+
                     <a href="{{ url('/auth/github') }}">
                         <button class="btn btn-lg btn-success btn-block mt-2 mb-4">Login With Github</button>
                     </a>
+
+
                 </div>
             </div>
         </div>
