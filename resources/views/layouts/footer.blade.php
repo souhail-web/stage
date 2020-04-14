@@ -1,3 +1,5 @@
+{{-- Affichage du footer --}}
+
 <footer>
     <div class="row expanded callout secondary">
 
@@ -11,7 +13,7 @@
 
         <div class="medium-6 columns">
             <ul class="menu align-right">
-                <li class="menu-text">Copyright © 2099 Random Mag</li>
+                <li class="menu-text">Blog laravel - M2 DCISS 2020</li>
             </ul>
         </div>
     </div>

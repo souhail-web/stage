@@ -21,8 +21,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        /*         $posts = Post::latest('post_date')->take(5)->get(); //get all posts
- */
+
         $posts = Post::orderBy('post_date', 'desc')->paginate(5);
 
         return view('posts.index', array(
@@ -71,7 +70,8 @@ class PostsController extends Controller
         ]);
 
 
-        // On redirige l'utilisateur vers son post fraichement créé avec une notification de réussite (à finir)
+        // On redirige l'utilisateur vers son post fraichement créé
+            // par la suite il faudrait ajouter une notification de réussite
         return redirect()->route('posts.show',$posts->id); /* ,[$posts->id]))->with('notification', 'Post created!'); */
     }
 
@@ -83,13 +83,10 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $posts = Post::where('id', $post->id)->first(); //get first post with post_nam == $post_name
+        $posts = Post::where('id', $post->id)->first();
 
         return view('posts/show_informations', compact('posts'));
 
-        // array( //Pass the post to the view
-        //   'posts' => $posts
-        // ));
     }
 
 
@@ -133,8 +130,7 @@ class PostsController extends Controller
         ]);
 
 
-
-        // On redirige l'utilisateur vers son post fraichement créé avec une notification de réussite (à finir)
+        // On redirige l'utilisateur vers son post fraichement créé
         return redirect()->route('posts.show',$post->id); /* ,[$posts->id]))->with('notification', 'Post created!'); */
     }
 
@@ -146,8 +142,10 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
+        //on supprime le post correspondant
         $post->delete();
 
+         // On redirige l'utilisateur vers l'accueil des posts
         return redirect()->route('posts.index'); /* ,[$posts->id]))->with('notification', 'Post created!'); */
 
     }

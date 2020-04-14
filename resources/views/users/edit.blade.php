@@ -1,3 +1,5 @@
+{{-- Affichage des modifications utilisateur --}}
+
 @extends('layouts.app')
 
 
@@ -9,35 +11,6 @@
                 <div class="card-header text-center">Vos informations</div>
 
                 <div class="card-body">
-
-                    {{--                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"> Nom </th>
-                                <th scope="col"> Email </th>
-                                <th scope="col"> Rôle </th>
-                                <th scope="col"> Actions </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                           <tr>
-                                <td> {{ $users->name }}</td>
-                    <td> {{ $users->email}} </td>
-                    <td> {{ implode(', ', $users->roles()->get()->pluck('name')->toArray()) }} </td>
-
-                    <td>
-                        <a href="{{route('admin.users.edit',$users->id)}}">
-                            <button class="btn btn-secondary">Editer </button></a>
-
-                    </td>
-                    </tr>
-
-
-                    </tbody>
-                    </table> --}}
-
 
                     <form action="{{ route('user.users.update', $users)}}" method="post">
                         @csrf
@@ -78,34 +51,6 @@
                             </div>
                         </div>
 
-{{--                         <div class="form-group row">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    autocomplete="new-password" value="" confirmed>
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" autocomplete="new-password" confirmed
-                                    value="">
-                            </div>
-                        </div> --}}
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary"> Modifier </button>

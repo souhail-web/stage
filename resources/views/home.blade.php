@@ -1,3 +1,5 @@
+{{-- Affichage du home pour les authentifiés, mais pas utilisé ici --}}
+
 @extends('layouts.app')
 
 @section('content')

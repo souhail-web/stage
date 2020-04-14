@@ -37,47 +37,76 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+        /**
+    * Retourne l'utilisateur
+    */
+
     public function posts()
     {
         return $this->hasMany('App\Post');
     }
+
+
+        /**
+    * Retourne le commentaire de l'utilisateur
+    */
 
     public function comments()
     {
         return $this->hasMany('App\Comment');
     }
 
+
+        /**
+    * Retourne le role de l'utilisateur
+    */
     public function roles() {
 
         return $this->belongsToMany('App\Role');
     }
 
+
+    /**
+    * Retourne  true si l'utilisateur est un Admin et false sinon
+    */
     public function isAdmin() {
-        //retourne true si l'utilisateur est un Admin et false sinon
 
         return $this->roles()->where('name','admin')->first();
     }
 
+
+        /**
+    * Retourne true si l'utilisateur est un User et false sinon
+    */
     public function isUser() {
-        //retourne true si l'utilisateur est un User et false sinon
 
         return $this->roles()->where('name','user')->first();
     }
 
+
+    /**
+    * Retourne true si l'utilisateur est un User et false sinon
+    */
     public function hasAnyRoles(array $roles) {
-        //retourne true si l'utilisateur est un User et false sinon
 
         return $this->roles()->whereIn('name',$roles)->first();
     }
 
+
+    /**
+    * Retourne true si l'utilisateur est un User et false sinon
+    */
     public function isAuthor($post) {
-        //retourne true si l'utilisateur est un User et false sinon
 
         return ($this->id == $post->user_id);
     }
 
+
+    /**
+    * Retourne true si l'utilisateur est un User et false sinon
+    */
     public function isCommentAuthor($comment) {
-        //retourne true si l'utilisateur est un User et false sinon
 
         return ($this->email == $comment->comment_email);
     }

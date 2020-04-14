@@ -42,44 +42,45 @@ class CommentController extends Controller
     {  // traitement du formulaire
 
 
-        if(Auth::check()){
-        // on verifie que les données insérées sont correctes
-        $request->validate([
-            'content' => ['required', 'string'],
-        ]);
+        // si l'utilisateur est authentifié
+        if (Auth::check()) {
+            // on verifie que les données insérées sont correctes
+            $request->validate([
+                'content' => ['required', 'string'],
+            ]);
 
-        // on créé le commentaire dans la table correspondante
-         $comment = Comment::create([
-            'post_id' => $request->postID,
-            'comment_name' => Auth::user()->name,
-            'comment_email' => Auth::user()->email,
-            'comment_content' => $request->content,
-            'comment_date' => now(),
-        ]);
-         }
-        else {
+            // on créé le commentaire dans la table correspondante
+            $comment = Comment::create([
+                'post_id' => $request->postID,
+                'comment_name' => Auth::user()->name,
+                'comment_email' => Auth::user()->email,
+                'comment_content' => $request->content,
+                'comment_date' => now(),
+            ]);
 
- // on verifie que les données insérées sont correctes
- $request->validate([
-    'name' => 'required|string|unique:posts|min:2|max:100',
-    'email' => ['required', 'email'],
-    'content' => ['required', 'string'],
-    'g-recaptcha-response' => 'required|captcha'
-]);
+            //si l'utilisateur n'est pas authentifié
+        } else {
 
-// on créé le commentaire dans la table correspondante
- $comment = Comment::create([
-    'post_id' => $request->postID,
-    'comment_name' => $request->name,
-    'comment_email' => $request->email,
-    'comment_content' => $request->content,
-    'comment_date' => now(),
-]);
+            // on verifie que les données insérées sont correctes
+            $request->validate([
+                'name' => 'required|string|unique:posts|min:2|max:100',
+                'email' => ['required', 'email'],
+                'content' => ['required', 'string'],
+                'g-recaptcha-response' => 'required|captcha'
+            ]);
 
-         }
+            // on créé le commentaire dans la table correspondante
+            $comment = Comment::create([
+                'post_id' => $request->postID,
+                'comment_name' => $request->name,
+                'comment_email' => $request->email,
+                'comment_content' => $request->content,
+                'comment_date' => now(),
+            ]);
+        }
 
-        return redirect()->route('posts.show',$request->postID);
-}
+        return redirect()->route('posts.show', $request->postID);
+    }
 
     /**
      * Display the specified resource.
@@ -101,7 +102,6 @@ class CommentController extends Controller
     public function edit(Comment $comment)
     {
         return view('comments.edit', compact('comment'));
-
     }
 
     /**
@@ -119,18 +119,18 @@ class CommentController extends Controller
             'content' => ['required', 'string'],
         ]);
 
-        // on créé le commentaire dans la table correspondante
+        // on update le commentaire dans la table correspondante
 
         $comments = DB::table('comments')
-        ->where('id', $comment->id)
-        ->update([
-            'comment_content' => $request->content,
-            'comment_date' => now(),
-        ]);
+            ->where('id', $comment->id)
+            ->update([
+                'comment_content' => $request->content,
+                'comment_date' => now(),
+            ]);
 
 
 
-        return redirect()->route('posts.show',$comment->post_id);
+        return redirect()->route('posts.show', $comment->post_id);
     }
 
     /**
@@ -143,7 +143,6 @@ class CommentController extends Controller
     {
         $comment->delete();
 
-        return redirect()->route('posts.show',$comment->post_id);
-
+        return redirect()->route('posts.show', $comment->post_id);
     }
 }

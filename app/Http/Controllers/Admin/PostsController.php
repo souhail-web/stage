@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
 
+    // on s'assure qu'on est bien authentifié pour accéder à ce contenu
     public function __construct() {
 
         $this->middleware('auth') ;
@@ -19,11 +20,11 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $posts = Post::paginate(15);;
-        /*         return view('admin.users.index')->with('users',$users) ;
-         */
+
         return view('admin.posts.index', array(
                 'posts'=>$posts
         )) ;

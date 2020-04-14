@@ -1,3 +1,5 @@
+{{-- Affichage de la bannière --}}
+
 <style>
     .banniere {
         text-align: center;
@@ -11,5 +13,5 @@
 </style>
 
 <div class="banniere">
-    <a  href="{{ route('accueil') }}"><img src="{{asset('assets/banniere2.png')}}" alt="youMAKEfashion"></a>
+    <a  href="{{ route('accueil') }}"><img src="{{asset('assets/banniere2.png')}}" alt="Blog Laravel M2DCISS"></a>
 </div>

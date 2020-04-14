@@ -56,11 +56,13 @@
 
 
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      @can('edit-comment',$comment)   <a href="{{ route('comments.edit', $comment->id)}}" > <button class="btn btn-primary m-1">
-                Edit </button>
-        </a>
-    @endcan
 
+        {{-- Edition du commentaire si les parametres utilisateur l'y autorise --}}
+      @can('edit-comment',$comment)<a href="{{ route('comments.edit', $comment->id)}}" > <button class="btn btn-primary m-1">
+                Edit </button> </a>
+      @endcan
+
+      {{-- Supression du commentaire si les parametres utilisateur l'y autorise --}}
     @can('delete-comment',$comment)
 
         <form method="post" action="{{ route('comments.destroy', $comment->id) }}">
@@ -70,6 +72,7 @@
             </button>
         </form>
     @endcan
+
 
     @if(Auth::check() && Auth::user()->id == $posts->user_id)
     <form method="post" action="{{ route('comments.destroy', $comment->id) }}">

@@ -1,9 +1,10 @@
+{{-- Affichage de la section "ABOUT" --}}
+
 @include('layouts/app')
 @include('layouts/banniere')
 
 <head>
     <link rel="stylesheet" href="{{asset('css/test.css')}}">
-
     <title> About </title>
 </head>
 

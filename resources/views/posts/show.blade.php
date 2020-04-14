@@ -1,23 +1,24 @@
+{{-- Affichage du post --}}
+
 @include('layouts/app')
 
 <head>
     <link type="text/css" rel="stylesheet" href={{asset('css/commentaire.css')}}>
     <link rel="stylesheet" href="{{asset('css/test.css')}}">
 
-    <title> @yield('titrePage')</title>
 
     <!--intégration du reCaptcha !-->
     {!! NoCaptcha::renderJs() !!}
 
     {{-- Mise en page du captcha --}}
     <style>
-            .text-xs-center {
-        text-align: center;
-    }
+        .text-xs-center {
+            text-align: center;
+        }
 
-    .g-recaptcha {
-        display: inline-block;
-    }
+        .g-recaptcha {
+            display: inline-block;
+        }
     </style>
 
 </head>
@@ -72,8 +73,6 @@
 
             <div id="comments">
                 <h4>Comments</h4> {{-- Titre de la section commentaire --}}
-
-                {{-- <div> <p> @yield('nbcommentaires') </p> </div> --}}
             </div>
 
             {{-- Mise en page de l'article --}}
@@ -86,13 +85,13 @@
 
             <h4 class="text-center">Post a comment </h4>
 
-
-
             {{-- Formulaire de commentaire --}}
             <form method="post" action="{{ route('comments.store') }}">
 
                 @csrf
 
+
+                {{-- Formulaire à afficher si l'utilisateur est connecté --}}
 
                 @if(Auth::check())
 
@@ -105,40 +104,46 @@
         <input type="hidden" name="postID" value="{{ $posts->id }}">
 
 
+        {{-- Bouton d'envoi --}}
         <div class="text-center pb-3"><button type="submit" class="btn btn-primary"> Publish </button></div>
 
         </form>
 
 
+                        {{-- Formulaire à afficher si l'utilisateur n'est pas connecté --}}
+
         @else
 
 
+        {{-- Nom --}}
         <div class="form-group">
             <div class="control" style="float: left;width: 35%;">
                 <label for="title" class="col-sm-12 text-center">Name</label>
                 <input type="text" name="name" value="" class="input w-100 p-3" placeholder="name" minlength="2"
                     maxlength="100" required="">
-
             </div>
 
+            {{-- Email --}}
             <div class="control" style="float: right;width: 60%;">
                 <label for="title" class="col-sm-12 text-center">Email</label>
                 <input type="email" name="email" value="" class="input w-100 p-3" placeholder="email" minlength="5"
                     maxlength="100" required="">
-
             </div>
 
 
-
+            {{-- Commentaire --}}
             <label for="content" class="col-sm-12 text-center" style="clear: both;">Comment</label>
             <div class="control" style="clear: both;">
                 <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required=""
                     rows="2"></textarea>
             </div>
         </div>
+
+        {{-- Envoi du numéro du post pour simplifier l'intégration en BDD --}}
         <input type="hidden" name="postID" value="{{ $posts->id }}">
 
 
+        {{-- Afficahge du captcha --}}
         <div class="form-group text-center ml-6">
             {!! NoCaptcha::display() !!}
 
@@ -148,8 +153,9 @@
                 <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
             </span>
             @endif
-
         </div>
+
+        {{-- Bouton d'envoi --}}
         <div class="text-center pb-3"><button type="submit" class="btn btn-primary"> Publish </button></div>
 
         </form>
@@ -160,6 +166,6 @@
 
 </body>
 
-{{-- Mise en page du footer --}}
 
+{{-- Mise en page du footer --}}
 @include('layouts/footer')

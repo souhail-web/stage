@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
 
-    public function __construct() {
+    // on s'assure qu'on est bien authentifié pour accéder à ce contenu
+    public function __construct()
+    {
 
-        $this->middleware('auth') ;
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -21,12 +23,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-       $users = User::all();
-/*         return view('admin.users.index')->with('users',$users) ;
- */
-return view('admin.users.index', array(
-        'users'=>$users
-)) ;
+        $users = User::all();
+
+        return view('admin.users.index', array(
+            'users' => $users
+        ));
     }
 
     /**
@@ -70,13 +71,12 @@ return view('admin.users.index', array(
     public function edit(User $user)
     {
 
-        $roles=Role::all();
+        $roles = Role::all();
 
-        return view('admin.users.edit',[
-            'user'=>$user,
-            'roles'=>$roles
-        ]) ;
-
+        return view('admin.users.edit', [
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -88,14 +88,14 @@ return view('admin.users.index', array(
      */
     public function update(Request $request, User $user)
     {
-       $user->roles()->sync($request->roles);
+        $user->roles()->sync($request->roles);
 
-       $user->name = $request->name;
-       $user->email = $request->email;
+        $user->name = $request->name;
+        $user->email = $request->email;
 
-       $user->save();
+        $user->save();
 
-       return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -110,6 +110,5 @@ return view('admin.users.index', array(
         $user->delete();
 
         return redirect()->route('admin.users.index');
-
     }
 }

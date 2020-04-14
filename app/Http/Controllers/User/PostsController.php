@@ -25,8 +25,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::where('user_id',Auth::user()->id)->paginate(15);;
-        /*         return view('admin.users.index')->with('users',$users) ;
-         */
+
+
         return view('users.posts.index', array(
                 'posts'=>$posts
         )) ;
@@ -61,7 +61,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        $posts = Post::where('id', $post->id)->first(); //get first post with post_nam == $post_name
+        $posts = Post::where('id', $post->id)->first();
 
         return view('posts/show_informations', compact('posts'));
     }

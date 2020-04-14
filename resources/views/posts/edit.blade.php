@@ -1,3 +1,5 @@
+{{-- Edition d'un post --}}
+
 @extends('layouts/app')
 
 

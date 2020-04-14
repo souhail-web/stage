@@ -20,11 +20,6 @@
                             <div class="col-md-6 mt-3"> {{ $users->email}} </div>
                             <div class="col-md-6 text-right font-weight-bold mt-3">Role</div>
                             <div class="col-md-6 mt-3"> {{ implode(', ', $users->roles()->get()->pluck('name')->toArray()) }}</div>
-  {{--                           <div class="col-md-6 text-right font-weight-bold">Number of posts</div>
-                            <div class="col-md-6"> {{ $users->created_at}}</div>
-                            <div class="col-md-6 text-right font-weight-bold">Number of comments</div>
-                            <div class="col-md-6"> {{ $users->created_at}}</div> --}}
-
                             <div class="col text-center mt-4">
 
                            <a href="{{ route('user.users.edit', $users->id) }}">

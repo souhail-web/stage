@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id')->unique();
             $table->string('name');
             $table->string('email')->unique();
-            /* MODIFICATIONS SOCIALITE */
+            /* SOCIALITE */
             $table->string('google_id')->nullable();
             $table->string('github_id')->nullable();
             /*                          */

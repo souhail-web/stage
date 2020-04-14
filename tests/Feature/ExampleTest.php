@@ -16,15 +16,15 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
         $response = $this->get('/');
-
         $response->assertStatus(200);
 
         $response = $this->get('Contact');
-
         $response->assertStatus(200);
 
-        $response = $this->post('Contact');
+        $response = $this->get("About");
+        $response->assertStatus(200);
 
+        $response = $this->get("login");
         $response->assertStatus(200);
 
     }

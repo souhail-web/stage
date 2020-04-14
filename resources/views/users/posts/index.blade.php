@@ -1,3 +1,5 @@
+{{-- Affichage de la page de gestion des posts utilisateur --}}
+
 @extends('layouts.app')
 
 
@@ -11,8 +13,7 @@
                 <div class="card-body">
 
 
-
-
+                    {{-- Affichage d'un message spécifique si l'utilisateur n'a pas encore écrit de post --}}
                     @if($posts->isEmpty())
                     <div class="col text-center">
                     <p> You didn't wrote any article. Do you want to write one ? </p>
@@ -21,30 +22,28 @@
                     </div>
                     @else
 
+                    {{-- Sinon affichage d'un tableau de gestion des posts --}}
                     <table class="table table-striped ">
                         <thead>
                             <tr>
-
                                 <th scope="col"> Date </th>
                                 <th scope="col"> Title </th>
-                                {{--                                 <th scope="col"> Content </th>
-         --}} <th scope="col"> Status </th>
+                                <th scope="col"> Status </th>
                                 <th scope="col"> Type </th>
                                 <th scope="col"> Category </th>
                                 <th scope="col"> Actions </th>
-
-
                             </tr>
                         </thead>
+
                         <tbody>
 
+                            {{-- On itère sur chaque posts --}}
                     @foreach ($posts as $post )
 
                             <tr>
                                 <th scope="row"> {{ $post->post_date}} </td>
                                 <td> {{ $post->post_title}} </td>
-                                {{--                                 <td> {{ $post->post_content}} </td>
-                                --}} <td> {{ $post->post_status}} </td>
+                                <td> {{ $post->post_status}} </td>
                                 <td> {{ $post->post_type}} </td>
                                 <td> {{ $post->post_category}} </td>
 
@@ -75,6 +74,8 @@
             </div>
 
         </div>
+
+        {{-- Pagination --}}
         {!! $posts->render() !!}
 
     </div>

@@ -20,6 +20,7 @@ class ContactController extends Controller
     // traitement du formulaire
     {
 
+        // si utilisateur authentifié
         if(Auth::check()) {
         // on verifie que les données insérées sont correctes
         request()->validate([
@@ -36,14 +37,17 @@ class ContactController extends Controller
             'contact_date' => now(),
         ]);
 
+        // si utilisateur non authentifié
         } else {
 
-                    // on verifie que les données insérées sont correctes
+            // on verifie que les données insérées sont correctes
         request()->validate([
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'subject' => ['required', 'string'],
             'content' => ['required', 'string'],
+            'g-recaptcha-response' => 'required|captcha'
+
         ]);
 
         // on créé le contact dans la table correspondante

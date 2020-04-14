@@ -1,5 +1,6 @@
-@extends('layouts.app')
+{{-- Affichage des modifications utilisateur/password --}}
 
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -10,57 +11,6 @@
 
                 <div class="card-body">
 
-
-                  {{--   <form action="{{ route('user.users.password_store', $user)}}" method="post">
-                        @csrf
-                        @method('PUT')
-
-                         <div class="form-group row">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    autocomplete="new-password" value="" confirmed>
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" autocomplete="new-password" confirmed
-                                    value="">
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary"> Change my password </button>
-                        </div>
-                </div>
-            </div>
-
-            <div class="text-right">
-
-{{--                 <button onclick="confirmer()" class="btn btn-danger  mt-4"> Supprimer mon compte </button>
- --}}                {{-- <a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{route('user.users.destroy',$users->id)}}">Supprimer mon compte</a>
-
-
-            </div> --}}
-
-
-
-
             <div class="container">
                 <div class="row">
                     <div class="col-10 offset-1">
@@ -68,12 +18,15 @@
                             @csrf()
                             @method('PUT')
 
+
+                            {{-- Changement mdp --}}
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
+                                    {{-- Affichage de l'erreur --}}
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -82,6 +35,8 @@
                                 </div>
                             </div>
 
+
+                            {{-- Confirmation du mdp --}}
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -90,6 +45,8 @@
                                 </div>
                             </div>
 
+
+                            {{-- Bouton d'envoi --}}
                             <div class="form-group row mb-0 text-center">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
