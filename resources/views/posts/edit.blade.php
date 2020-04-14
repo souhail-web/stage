@@ -40,9 +40,7 @@
                         <div class="text-center pb-3">
                             <button class="square-button" type="submit">Envoyer</button>
                         </div>
-                        <div class="col-sm-12">
-                            <button class="square-button">Envoyer</button>
-                        </div>
+
 
 
                     </form>

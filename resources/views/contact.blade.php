@@ -47,7 +47,7 @@
                                     <label for="inputAddress">Subject</label>
                                     <input id="subject" type="text"
                                         class="form-control @error('subject') is-invalid @enderror" name="subject"
-                                        value="{{ old('subject') }}" required autocomplete="subject" autofocus>
+                                        value="{{ old('subject') }}" required autocomplete="subject" autofocus placeholder="Your subject">
 
                                 </div>
 
@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label for="content">Message</label>
                                     <textarea name="content" type="text" class="form-control textarea"
-                                        value="{{ old('content') }}" required required rows="8"></textarea>
+                                        value="{{ old('content') }}" required required rows="8" placeholder="Your message"  ></textarea>
                                 </div>
 
 
@@ -90,14 +90,14 @@
                                     <label for="inputAddress">Subject</label>
                                     <input id="subject" type="text"
                                         class="form-control @error('subject') is-invalid @enderror" name="subject"
-                                        value="{{ old('subject') }}" required autocomplete="subject" autofocus>
+                                        value="{{ old('subject') }}" required autocomplete="subject" autofocus placeholder="Your subject">
                                 </div>
 
                                 {{-- Contenu du message --}}
                                 <div class="form-group">
                                     <label for="content">Message</label>
                                     <textarea name="content" type="text" class="form-control textarea"
-                                        value="{{ old('content') }}" required required rows="8"></textarea>
+                                        value="{{ old('content') }}" required required rows="8" placeholder="Your message"></textarea>
                                 </div>
 
 
@@ -122,5 +122,9 @@
                         </div>
                     </div>
     </main>
+    <br>
 
 </body>
+
+  {{-- Mise en page du footer --}}
+  @include('layouts/footer')

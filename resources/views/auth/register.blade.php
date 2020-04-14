@@ -81,6 +81,9 @@
             <a href="{{ url('auth/google') }}" class="google">
                 <i class="fa fa-google" aria-hidden="true"></i>
             </a>
+
+            <p class="text-justify"> Si vous vous inscrivez avec une de ces applications, pensez ensuite à changer votre mot de passe dans votre compte. Sinon vous ne pourrez
+                vous connecter qu'en repassant par cette application </p>
         </div>
 
     </form>

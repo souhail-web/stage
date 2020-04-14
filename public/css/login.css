@@ -18,7 +18,7 @@ form#login-form {
 }
 
 form#login-form div.heading {
-    background: #cb638d;
+    background: #ce487b;
     color: #fff;
     text-align: center;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ div.left input[type="password"]:focus {
 }
 
 div.left input[type="submit"] {
-    background: #cb638d;
+    background: #ce487b;
     color: #fff;
     outline: none;
     text-transform: uppercase;
@@ -105,7 +105,7 @@ div.left input[type="submit"] {
 }
 
 div.left input[type="submit"]:hover {
-    background: rgba(248, 95, 100, 0.8);
+    background: #cb638d;
 }
 
 div.right div.connect {

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 button, img, legend {
@@ -1028,7 +1028,7 @@ dl, ol, p, ul {
 
 p {
     font-size: inherit;
-    text-align : justify;
+    text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1064,7 +1064,7 @@ h3 {
 
 h4 {
     font-size: 1.125rem;
-    color : #595656;
+    color: #595656;
 }
 
 h5 {
@@ -2111,8 +2111,9 @@ select[multiple] {
 }
 
 .callout {
-/*     margin: 0 0 1rem;
- */    padding: 1rem;
+    /*     margin: 0 0 1rem;
+ */
+    padding: 1rem;
     border: 1px solid rgba(10, 10, 10, .25);
     border-radius: 0;
     position: relative;
@@ -2817,94 +2818,11 @@ body, html {
 
 .pagination {
     /*   display: flex;
-     */  padding-left: 0;
-      list-style: none;
-      border-radius: 0.25rem;
-    }
-
-    .page-link {
-      position: relative;
-      display: block;
-      padding: 0.5rem 0.75rem;
-      margin-left: -1px;
-      line-height: 1.25;
-      color: #3490dc;
-      background-color: #fff;
-      border: 1px solid #dee2e6;
-    }
-
-    .page-link:hover {
-      z-index: 2;
-      color: #1d68a7;
-      text-decoration: none;
-      background-color: #e9ecef;
-      border-color: #dee2e6;
-    }
-
-    .page-link:focus {
-      z-index: 3;
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
-    }
-
-    .page-item:first-child .page-link {
-      margin-left: 0;
-      border-top-left-radius: 0.25rem;
-      border-bottom-left-radius: 0.25rem;
-    }
-
-    .page-item:last-child .page-link {
-      border-top-right-radius: 0.25rem;
-      border-bottom-right-radius: 0.25rem;
-    }
-
-    .page-item.active .page-link {
-      z-index: 3;
-      color: #fff;
-      background-color: #c27e95;
-      border-color: #c27e95;
-    }
-
-    .page-item.disabled .page-link {
-      color: #6c757d;
-      pointer-events: none;
-      cursor: auto;
-      background-color: #fff;
-      border-color: #dee2e6;
-    }
-
-    .pagination-lg .page-link {
-      padding: 0.75rem 1.5rem;
-      font-size: 1.125rem;
-      line-height: 1.5;
-    }
-
-    .pagination-lg .page-item:first-child .page-link {
-      border-top-left-radius: 0.3rem;
-      border-bottom-left-radius: 0.3rem;
-    }
-
-    .pagination-lg .page-item:last-child .page-link {
-      border-top-right-radius: 0.3rem;
-      border-bottom-right-radius: 0.3rem;
-    }
-
-    .pagination-sm .page-link {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.7875rem;
-      line-height: 1.5;
-    }
-
-    .pagination-sm .page-item:first-child .page-link {
-      border-top-left-radius: 0.2rem;
-      border-bottom-left-radius: 0.2rem;
-    }
-
-    .pagination-sm .page-item:last-child .page-link {
-      border-top-right-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-    }
-
+     */
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem;
+}
 
 .progress {
     background-color: #cacaca;
@@ -3621,26 +3539,23 @@ table.hover tr:nth-of-type(even):hover {
 }
 
 .paragraphe {
-
     text-align: justify;
 }
 
 .pagination {
-
     text-align: center;
 }
 
-#suite{
-
-    text-align : right;
+#suite {
+    text-align: right;
 }
 
 #imgArticle {
     display: block;
-margin-left: auto;
-margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #dateArticle {
     text-align: right;
-}
+} */

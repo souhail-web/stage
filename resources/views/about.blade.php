@@ -93,3 +93,7 @@
         </div>
     </main>
         <br> {{-- Saut de ligne pour aérer --}}
+
+
+          {{-- Mise en page du footer --}}
+@include('layouts/footer')
