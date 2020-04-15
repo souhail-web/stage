@@ -82,8 +82,10 @@
                 <i class="fa fa-google" aria-hidden="true"></i>
             </a>
 
-            <p class="text-justify"> Si vous vous inscrivez avec une de ces applications, pensez ensuite à changer votre mot de passe dans votre compte. Sinon vous ne pourrez
-                vous connecter qu'en repassant par cette application </p>
+            <p class="text-justify"> If you registered via Facebook, Google or Github, please change your password in 'my informations'
+                 in your profile so you’ll be able to login later to the blog via the traditionnal login.
+                 Otherwise you will still need to use this app to log in.
+            </p>
         </div>
 
     </form>

@@ -1,46 +1,6 @@
 @include('layouts/app')
 @include('layouts/banniere')
 
-<?php
-
-/**
- * Retourne la phrase tronquée avec le nombre de mots définis
- *
- * @param string $phrase
- *      phrase à tronquer
- * @param int $max_words
- *      nombre de mot maximum
- * @return string
- *      phrase tronquée
-**/
-
-
- function trunc($phrase, $max_words)
- {
-    $phrase_array = explode(' ',$phrase);
-    if(count($phrase_array) > $max_words && $max_words > 0)
-       $phrase = implode(' ',array_slice($phrase_array, 0, $max_words)).'...';
-    return $phrase;
- }
-
- /**
- * Retourne le numéro de l'image à afficher
- *
- * @return int
- *     chiffre aléatoire entre 1047 et 1084
-**/
-
- function randomImage()
- {
-
-    return rand(1047,1084);
-
- }
-
-?>
-
-
-
   <main class="py-4">
 <div class="container">
     <hr>
