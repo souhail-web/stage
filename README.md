@@ -20,20 +20,20 @@ Ces instructions vous permettront d'obtenir une copie du projet sur votre ordina
 6. Taper `copy .env.example to .env `
 7. Taper `php artisan key:generate` pour générer une clé dans le fichier .env 
 
-Il faut maintenant modifier le fichier .env pour l’adapter à notre projet. Nous utiliserons sqlite et devons donc modifier le .env en conséquence, voici à quoi il devrait ressembler : 
+8. Il faut maintenant modifier le fichier .env pour l’adapter à notre projet. Nous utiliserons sqlite et devons donc modifier le .env en conséquence, voici à quoi il devrait ressembler : 
 
-`DB_CONNECTION=sqlite
-DB_DATABASE= votreChemin\database\database.sqlite
-#DB_HOST=127.0.0.1
-#DB_PORT=3306
-#DB_DATABASE=laravel
-#DB_USERNAME=root
-#DB_PASSWORD=`
+`DB_CONNECTION=sqlite`  
+`DB_DATABASE= votreChemin\database\database.sqlite`  
+`#DB_HOST=127.0.0.1`  
+`#DB_PORT=3306`  
+`#DB_DATABASE=laravel`  
+`#DB_USERNAME=root`  
+`#DB_PASSWORD=`  
 
-Pour pouvoir utiliser le reCaptcha il est nécessaire de rajouter les lignes suivantes à la fin du fichier .env :
+9. Pour pouvoir utiliser le reCaptcha il est nécessaire de rajouter les lignes suivantes à la fin du fichier .env :
 
-`NOCAPTCHA_SECRET=6Lddb-kUAAAAAIiw58vdF9Nu5fr79nDdv49_VLHa
-NOCAPTCHA_SITEKEY=6Lddb-kUAAAAAHershddGZwN5W_LLoJJtP_JHlww`
+`NOCAPTCHA_SECRET=6Lddb-kUAAAAAIiw58vdF9Nu5fr79nDdv49_VLHa`  
+`NOCAPTCHA_SITEKEY=6Lddb-kUAAAAAHershddGZwN5W_LLoJJtP_JHlww`
 
 ## Demarage 
 
