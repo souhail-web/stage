@@ -10,7 +10,7 @@ $factory->define(Comment::class, function (Faker $faker) {
         'comment_name' => $faker->name,
         'comment_email' => $faker->safeEmail,
         'comment_content' => $faker->paragraph(5),
-        'comment_date' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
+        'comment_date' => $faker->dateTimeBetween('2025-01-01', '2025-04-30'),
 
     ];
 });

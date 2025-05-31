@@ -11,7 +11,7 @@ $factory->define(Contact::class, function (Faker $faker) {
         'contact_email' => $faker->unique()->safeEmail,
         'contact_subject' => $faker->word(),
         'contact_message'=> $faker->sentence(),
-'contact_date' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
+'contact_date' => $faker->dateTimeBetween('2025-01-01', '2025-04-30'),
 
     ];
 });

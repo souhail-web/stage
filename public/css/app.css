@@ -72,8 +72,8 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-/*   background-color: #f8fafc;
- */}
+  background-color: #f8fafc;
+}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
@@ -93,7 +93,6 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-
 }
 
 p {
@@ -171,14 +170,13 @@ sup {
 }
 
 a {
-  color: #c32666;
+  color: #3490dc;
   text-decoration: none;
   background-color: transparent;
-  cursor: pointer
 }
 
 a:hover {
-  color: #bab8ba;
+  color: #1d68a7;
   text-decoration: underline;
 }
 
@@ -2698,44 +2696,44 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #c32666;
-  border-color: #c32666;
+  background-color: #3490dc;
+  border-color: #3490dc;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #bab8ba;
-  border-color: #bab8ba;
+  background-color: #227dc7;
+  border-color: #2176bd;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
-  color: black;
-  background-color: white;
-  border-color: lightgrey;
-  box-shadow: 0 0 0 0.2rem rgba(190, 114, 146, 0.5);
+  color: #fff;
+  background-color: #227dc7;
+  border-color: #2176bd;
+  box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
 
-/* .btn-primary.disabled,
+.btn-primary.disabled,
 .btn-primary:disabled {
   color: #fff;
   background-color: #3490dc;
   border-color: #3490dc;
 }
- */
-/* .btn-primary:not(:disabled):not(.disabled):active,
+
+.btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-/*   color: black;
-  background-color: white;
+  color: #fff;
+  background-color: #2176bd;
   border-color: #1f6fb2;
-} */
+}
 
-/* .btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
-} */
+}
 
 .btn-secondary {
   color: #fff;
@@ -3314,12 +3312,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #c32666;
+  color: #3490dc;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #bab8ba;
+  color: #1d68a7;
   text-decoration: underline;
 }
 
@@ -5222,98 +5220,94 @@ input[type=button].btn-block {
 }
 
 .pagination {
-    padding-left: 0;
-    list-style: none;
-    border-radius: 0.25rem;
-    display: flex;
-    margin: 15px;
-
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
 }
 
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #3490dc;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
 
+.page-link:hover {
+  z-index: 2;
+  color: #1d68a7;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
 
-    .page-link {
-      position: relative;
-      display: block;
-      padding: 0.5rem 0.75rem;
-      margin-left: -1px;
-      line-height: 1.25;
-       color: black;
-      background-color: #fff;
-      border: 1px solid #dee2e6;
-    }
+.page-link:focus {
+  z-index: 3;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+}
 
-    .page-link:hover {
-      z-index: 2;
-      color: lightgrey;
-      text-decoration: none;
-      background-color: #e9ecef;
-      border-color: #dee2e6;
-    }
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
 
-    .page-link:focus {
-      z-index: 3;
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
-    }
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
 
-    .page-item:first-child .page-link {
-      margin-left: 0;
-      border-top-left-radius: 0.25rem;
-      border-bottom-left-radius: 0.25rem;
-    }
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #3490dc;
+  border-color: #3490dc;
+}
 
-    .page-item:last-child .page-link {
-      border-top-right-radius: 0.25rem;
-      border-bottom-right-radius: 0.25rem;
-    }
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
 
-    .page-item.active .page-link {
-      z-index: 3;
-      color: #fff;
-      background-color: #c27e95;
-      border-color: #c27e95;
-    }
+.pagination-lg .page-link {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
 
-    .page-item.disabled .page-link {
-      color: #6c757d;
-      pointer-events: none;
-      cursor: auto;
-      background-color: #fff;
-      border-color: #dee2e6;
-    }
+.pagination-lg .page-item:first-child .page-link {
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
 
-    .pagination-lg .page-link {
-      padding: 0.75rem 1.5rem;
-      font-size: 1.125rem;
-      line-height: 1.5;
-    }
+.pagination-lg .page-item:last-child .page-link {
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
 
-    .pagination-lg .page-item:first-child .page-link {
-      border-top-left-radius: 0.3rem;
-      border-bottom-left-radius: 0.3rem;
-    }
+.pagination-sm .page-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.7875rem;
+  line-height: 1.5;
+}
 
-    .pagination-lg .page-item:last-child .page-link {
-      border-top-right-radius: 0.3rem;
-      border-bottom-right-radius: 0.3rem;
-    }
+.pagination-sm .page-item:first-child .page-link {
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 0.2rem;
+}
 
-    .pagination-sm .page-link {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.7875rem;
-      line-height: 1.5;
-    }
-
-    .pagination-sm .page-item:first-child .page-link {
-      border-top-left-radius: 0.2rem;
-      border-bottom-left-radius: 0.2rem;
-    }
-
-    .pagination-sm .page-item:last-child .page-link {
-      border-top-right-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-    }
+.pagination-sm .page-item:last-child .page-link {
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
 
 .badge {
   display: inline-block;
@@ -8631,8 +8625,8 @@ button.bg-dark:focus {
 
 .pb-4,
 .py-4 {
-/*   padding-bottom: 1.5rem !important;
- */}
+  padding-bottom: 1.5rem !important;
+}
 
 .pl-4,
 .px-4 {
@@ -10888,27 +10882,3 @@ a.text-dark:focus {
   }
 }
 
-.paragraphe {
-
-    text-align: justify;
-}
-
-.pagination {
-
-    text-align: center;
-}
-
-#suite{
-
-    text-align : right;
-}
-
-#imgArticle {
-    display: block;
-margin-left: auto;
-margin-right: auto;
-}
-
-#dateArticle {
-    text-align: right;
-}

@@ -6,7 +6,7 @@
 
 <div class ="container">
 <hr>
-    <h4 class="text-center">BREAKING NEWS</h4>
+    <h4 class="text-center">CENTRE D'ÉTUDES EN DROITS HUMAINS ET DÉMOCRATIE (CEDHD)</h4>
 <hr>
 
 <div class="row">

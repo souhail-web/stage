@@ -2,7 +2,8 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Font Awesome 5 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
 @section('content')
@@ -69,17 +70,20 @@
 
             {{-- Facebook --}}
             <a href="{{ url('/auth/facebook') }}" class="facebook">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <span>Facebook</span>
             </a> <br />
 
             {{-- Github --}}
             <a href="{{ url('/auth/github') }}" class="github">
-                <i class="fa fa-github" aria-hidden="true"></i>
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span>GitHub</span>
             </a> <br />
 
             {{-- Google --}}
             <a href="{{ url('auth/google') }}" class="google">
-                <i class="fa fa-google" aria-hidden="true"></i>
+                <i class="fab fa-google" aria-hidden="true"></i>
+                <span>Google</span>
             </a>
 
             <p class="text-justify"> If you registered via Facebook, Google or Github, please change your password in 'my informations'

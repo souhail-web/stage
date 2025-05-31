@@ -1,4 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></p>
 
 <p align="center">
 <a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/built-with-love.svg"></a>
@@ -42,11 +42,13 @@ Taper `php artisan migrate --seed` pour créer les tables et les remplir avec de
 Taper `php artisan serve` pour lancer le serveur et lancez l’adresse [http://localhost:8000]( http://localhost:8000)
 
 ## Fabriqué avec
-* Laravel – Framework PHP
+* Laravel 10 – Framework PHP moderne (2025)
 
 ## Inclus
-* [Socialite](https://github.com/laravel/socialite) : afin de pouvoir se connecter à l’aide de facebook, google et github 
-* [No CAPTCHA reCAPTCHA](https://github.com/anhskohbo/no-captcha) : pour générer des captcha
+* [Socialite v5.8](https://github.com/laravel/socialite) : afin de pouvoir se connecter à l'aide de facebook, google et github 
+* [No CAPTCHA reCAPTCHA v3.5](https://github.com/anhskohbo/no-captcha) : pour générer des captcha
+* [Laravel UI v4.2](https://github.com/laravel/ui) : pour l'interface utilisateur et l'authentification
+* [Laravel Sail v1.26](https://laravel.com/docs/sail) : pour l'environnement de développement Docker
 
 ## Astuces 
 Pour utiliser l’application la database est remplie avec les identifiants suivants : 

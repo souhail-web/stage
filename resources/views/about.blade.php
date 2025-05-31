@@ -14,7 +14,7 @@
 
     <div class="container">
         <hr>
-        <h4 class="text-center">ABOUT </h4>
+        <h4 class="text-center">ABOUT - CENTRE D'ÉTUDES EN DROITS HUMAINS ET DÉMOCRATIE (CEDHD)</h4>
         <hr>
 
 
@@ -26,7 +26,7 @@
                     <img class="thumbnail" id="imgArticle" src="https://picsum.photos/850/350">
                     {{-- Contenu de l'article--}}
                     <div class="col text-center">
-                    <h4> <small> Master MIASHS 2020 - Programmation web côté serveur <br> Projet de création d’une application web avec le framework PHP Laravel.</small></h4>
+                    <h4> <small> Centre d'Études en Droits Humains et Démocratie (CEDHD) <br> Plateforme d'information et de documentation sur les droits humains - Développée avec Laravel 10 en 2025</small></h4>
                     </div>
                     <p>  Pour ce projet nous
                         avons décidé
@@ -83,10 +83,10 @@
 
                     </ol>
                     <div id="dateArticle">{{-- Date de l'article--}}
-                        <h3> <small> 15 avril 2020 </small> </h3>
+                        <h3> <small> 15 avril 2025 </small> </h3>
                     </div>
                     <div>
-                        <p><a>By Amély & Silvia </a></p> {{-- Auteur de l'article--}}
+                        <p><a>By Souhail </a></p> {{-- Auteur de l'article--}}
                     </div>
                 </div>
             </div>
