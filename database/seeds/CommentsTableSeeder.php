@@ -19,9 +19,17 @@ class CommentsTableSeeder extends Seeder
         if ($posts->count() > 0) {
             // Pour chaque post, créer entre 2 et 5 commentaires
             $posts->each(function ($post) {
-                factory(Comment::class, rand(2, 5))->create([
-                    'post_id' => $post->id
-                ]);
+                $commentCount = rand(2, 5);
+                
+                for ($i = 1; $i <= $commentCount; $i++) {
+                    Comment::create([
+                        'post_id' => $post->id,
+                        'comment_name' => 'Commenter ' . $i,
+                        'comment_email' => 'commenter' . $i . '@example.com',
+                        'comment_content' => 'This is comment ' . $i . ' for the post "' . $post->post_title . '". Lorem ipsum dolor sit amet.',
+                        'comment_date' => now()->subDays(rand(1, 15))
+                    ]);
+                }
             });
         }
     }

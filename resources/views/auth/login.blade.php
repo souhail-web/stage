@@ -14,7 +14,7 @@
     <form method="POST" action="{{ route('login') }}" id="login-form">
         @csrf
 
-        <div class="heading">Login to laravel blog</div>
+        <div class="heading">Connexion au blog</div>
 
         {{-- Partie gauche --}}
         <div class="left">
@@ -34,7 +34,7 @@
 
 
             {{-- Password --}}
-            <label for="password">Password</label> <br />
+            <label for="password">Mot de passe</label> <br />
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                 name="password" required autocomplete="current-password">
 
@@ -47,7 +47,7 @@
 
 
             {{-- Envoi --}}
-            <input type="submit" value="Login" />
+            <input type="submit" value="Se connecter" />
 
             {{--  @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -59,13 +59,7 @@
 
         {{-- Partie droite --}}
         <div class="right">
-            <div class="connect">Connect with</div>
-
-            {{-- Facebook --}}
-            <a href="{{ url('/auth/facebook') }}" class="facebook">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                <span>Facebook</span>
-            </a> <br />
+            <div class="connect">Se connecter avec</div>
 
             {{-- Github --}}
             <a href="{{ url('/auth/github') }}" class="github">

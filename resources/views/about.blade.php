@@ -26,7 +26,7 @@
                     <img class="thumbnail" id="imgArticle" src="https://picsum.photos/850/350">
                     {{-- Contenu de l'article--}}
                     <div class="col text-center">
-                    <h4> <small> Centre d'Études en Droits Humains et Démocratie (CEDHD) <br> Plateforme d'information et de documentation sur les droits humains - Développée avec Laravel 10 en 2025</small></h4>
+                    <h4> <small> Centre d'Études en Droits Humains et Démocratie (CEDHD) <br> Plateforme d'information et de documentation sur les droits humains - Développée par Souhail</small></h4>
                     </div>
                     <p>  Pour ce projet nous
                         avons décidé

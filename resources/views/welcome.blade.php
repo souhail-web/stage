@@ -24,19 +24,19 @@
                 <div class="large-6 columns">
                     <h5><a href="{{ route('posts.show', $post->id) }}">{{ $post->post_title }}</a></h5>
                     <p>
-                        <span><i class="fi-torso"> By {{ $post->author->name }} - </i></span>
+                        <span><i class="fi-torso"> Par {{ $post->author->name }} - </i></span>
                         <span><i class="fi-calendar"> {{ \Carbon\Carbon::parse($post->post_date)->format('j F,Y') }}
                                 &nbsp;&nbsp;</i></span>
                     </p>
                     <p class="paragraphe"> <?php echo trunc($post->post_content,60) ?> </p>
                     <br>
-                    <p id="suite"><a href="{{ route('posts.show', $post->id) }}"> Read more </a></p>
+                    <p id="suite"><a href="{{ route('posts.show', $post->id) }}"> Lire la suite </a></p>
 
                     <p id="suite"> <i class="fi-torso">
                         <?php if (count($post->comments) > 1)
-                                echo "<a href='http://localhost:8000/posts/$post->id/#comments'>".(count($post->comments))." Comments </a>" ;
+                                echo "<a href='http://localhost:8000/posts/$post->id/#comments'>".(count($post->comments))." Commentaires </a>" ;
                               else
-                                echo (count($post->comments))." Comment "?>
+                                echo (count($post->comments))." Commentaire "?>
                     </i></p>
                 </div>
             </div>

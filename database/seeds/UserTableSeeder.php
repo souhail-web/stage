@@ -1,9 +1,10 @@
 <?php
-
+// php artisan app:run-legacy-seeder NomDuSeeder
 use App\Role;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserTableSeeder extends Seeder
 {
@@ -18,14 +19,21 @@ class UserTableSeeder extends Seeder
 
     User::truncate();
 
+    // Create admin user
+    $admin = User::create([
+        'name' => 'Admin User',
+        'email' => 'admin@example.com',
+        'password' => Hash::make('password'),
+    ]);
+    $admin->roles()->attach(Role::where('name', 'admin')->first());
 
-    factory(App\User::class, 10)->create()->each(function ($user) {
-
-        $user->roles()->attach(Role::where('name', 'user')->first());
-        factory(App\Post::class, 3)->create(['user_id' => $user->id])->each(function($post){
-        factory(App\Comment::class,5)->create(['post_id'=>$post->id]);
-        });
-     });
+    // Create regular user
+    $user = User::create([
+        'name' => 'Regular User',
+        'email' => 'user@example.com',
+        'password' => Hash::make('password'),
+    ]);
+    $user->roles()->attach(Role::where('name', 'user')->first());
 
 
 

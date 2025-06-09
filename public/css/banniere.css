@@ -1,0 +1,72 @@
+/* Styles améliorés pour la bannière */
+
+.banniere {
+    padding: 15px 0;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef, #f8f9fa);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Ligne bleue supprimée */
+
+.banniere img {
+    max-width: 70%; /* Réduction de la taille à 70% */
+    height: auto;
+    transition: all 0.5s ease;
+    transform: translateY(0);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.banniere:hover img {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.15));
+}
+
+/* Animation subtile au chargement de la page */
+@keyframes fadeInBanner {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banniere {
+    animation: fadeInBanner 0.8s ease-out forwards;
+}
+
+/* Style responsive */
+@media (max-width: 768px) {
+    .banniere {
+        padding: 10px 0;
+    }
+    
+    .banniere img {
+        max-width: 90%;
+    }
+}
+
+/* Effet de brillance au survol */
+.banniere:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 1.2s ease;
+    opacity: 0;
+}
+
+.banniere:hover:after {
+    left: 130%;
+    opacity: 1;
+}

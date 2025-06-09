@@ -101,17 +101,18 @@
                                 </div>
 
 
-                                {{-- Afficahge du captcha --}}
+                                {{-- Espace pour d'autres éléments du formulaire si nécessaire --}}
+                                
+                                {{-- Code du captcha commenté pour référence future
                                 <div class="form-group text-center ml-6">
                                     {!! NoCaptcha::display() !!}
-
-                                    {{-- Affichage de l'erreur du captcha --}}
                                     @if ($errors->has('g-recaptcha-response'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
                                     @endif
                                 </div>
+                                --}}
 
                                 @endif
 

@@ -11,13 +11,13 @@
     <form method="POST" action="{{ route('register') }}" id="login-form">
         @csrf
 
-        <div class="heading">Register to laravel blog</div>
+        <div class="heading">Inscription au blog</div>
 
         {{-- Partie gauche --}}
         <div class="left">
 
             {{-- Name --}}
-            <label for="name">Name</label> <br />
+            <label for="name">Nom</label> <br />
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                 value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -42,7 +42,7 @@
             @enderror
 
             {{-- Password --}}
-            <label for="password">Password</label> <br />
+            <label for="password">Mot de passe</label> <br />
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                 name="password" required autocomplete="new-password">
 
@@ -54,25 +54,19 @@
             @enderror
 
             {{-- Confirmation du password --}}
-            <label for="password-confirm">Confirm password</label> <br />
+            <label for="password-confirm">Confirmer le mot de passe</label> <br />
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
                 autocomplete="new-password">
 
 
             {{-- Bouton d'envoi --}}
-            <input type="submit" value="Sign in" />
+            <input type="submit" value="S'inscrire" />
         </div>
 
 
         {{-- Partie droite --}}
         <div class="right">
-            <div class="connect">Register with</div>
-
-            {{-- Facebook --}}
-            <a href="{{ url('/auth/facebook') }}" class="facebook">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                <span>Facebook</span>
-            </a> <br />
+            <div class="connect">S'inscrire avec</div>
 
             {{-- Github --}}
             <a href="{{ url('/auth/github') }}" class="github">
@@ -86,9 +80,9 @@
                 <span>Google</span>
             </a>
 
-            <p class="text-justify"> If you registered via Facebook, Google or Github, please change your password in 'my informations'
-                 in your profile so you’ll be able to login later to the blog via the traditionnal login.
-                 Otherwise you will still need to use this app to log in.
+            <p class="text-justify"> Si vous vous inscrivez via Google ou GitHub, veuillez changer votre mot de passe dans "Mes informations"
+                 dans votre profil pour pouvoir vous connecter ultérieurement au site via la connexion traditionnelle.
+                 Sinon, vous devrez toujours utiliser ces services pour vous connecter.
             </p>
         </div>
 

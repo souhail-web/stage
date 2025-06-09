@@ -1,0 +1,81 @@
+/* Styles personnalisés pour la pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination li {
+    margin: 0 3px;
+}
+
+.pagination .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    color: #000;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #2199e8;
+    border-color: #2199e8;
+    color: #fff;
+    cursor: default;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #999;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+/* Animation au survol */
+.pagination .page-link {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pagination .page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour les flèches précédent/suivant */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Style responsive */
+@media (max-width: 576px) {
+    .pagination .page-item .page-link {
+        min-width: 35px;
+        height: 35px;
+        padding: 0 8px;
+        font-size: 0.9rem;
+    }
+    
+    /* Cacher certains numéros de page sur mobile */
+    .pagination li:not(.active):not(:first-child):not(:last-child):not(:nth-child(2)):not(:nth-last-child(2)) {
+        display: none;
+    }
+}

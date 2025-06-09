@@ -45,9 +45,9 @@ class ContactController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'subject' => ['required', 'string'],
-            'content' => ['required', 'string'],
-            'g-recaptcha-response' => 'required|captcha'
-
+            'content' => ['required', 'string']
+            // Validation reCAPTCHA désactivée temporairement
+            // 'g-recaptcha-response' => 'required|captcha'
         ]);
 
         // on créé le contact dans la table correspondante

@@ -1,0 +1,163 @@
+/* Styles améliorés pour la navbar et le logo CEDHD */
+
+/* Styles de la navbar */
+.navbar {
+    background: linear-gradient(to right, #343a40, #23272b) !important;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-bottom: 3px solid #e74c3c;
+    min-height: 110px;
+}
+
+/* Styles du logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    height: auto;
+}
+
+.navbar-brand:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.cedhd-logo-text {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #e74c3c, #f39c12);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: block;
+    padding: 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.navbar-brand:hover .cedhd-logo-text {
+    transform: scale(1.05);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #f39c12, #e74c3c);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.navbar-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+    color: #e74c3c;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+}
+
+.logo-badge {
+    display: block;
+    font-size: 0.65rem;
+    color: #ffffff;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    margin-top: -2px;
+}
+
+/* Styles des liens de navigation */
+.navbar .nav-link {
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    margin: 0 5px;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar .nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    background-color: #e74c3c;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover:after,
+.navbar .nav-link.active:after {
+    width: 80%;
+}
+
+.navbar .nav-link:hover {
+    color: white !important;
+}
+
+.navbar .nav-link.active {
+    color: white !important;
+    font-weight: 700;
+}
+
+/* Animation au chargement */
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar {
+    animation: fadeInNav 0.5s ease-out forwards;
+}
+
+.navbar-nav .nav-item {
+    animation: fadeInNav 0.5s ease-out forwards;
+    animation-delay: calc(0.1s * var(--animation-order, 0));
+    opacity: 0;
+}
+
+/* Style responsive */
+@media (max-width: 768px) {
+    .navbar-logo-img {
+        height: 24px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .logo-badge {
+        font-size: 0.6rem;
+    }
+    
+    .navbar .nav-link {
+        padding: 0.5rem 0.8rem;
+        margin: 2px 0;
+    }
+}

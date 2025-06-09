@@ -43,7 +43,7 @@
                         <h3> <small> @yield('date') </small> </h3> {{-- Date de l'article--}}
                     </div>
                     <div>
-                        <p><a href="#">By @yield('auteur') </a></p> {{-- Auteur de l'article--}}
+                        <p><a href="#">Par @yield('auteur') </a></p> {{-- Auteur de l'article--}}
                     </div>
                 </div>
             </div>
@@ -55,12 +55,12 @@
         @can('edit-article',$posts)
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <a href="{{ route('posts.edit', $posts->id)}}"> <button class="btn btn-primary m-1">
-                    Edit </button>
+                    Modifier </button>
             </a>
             <form method="post" action="{{ route('posts.destroy', $posts->id) }}" }>
                 @csrf @method('delete')
                 <button type="submit" class="btn btn-danger m-1">
-                    Delete
+                    Supprimer
                 </button>
             </form>
         </div>
@@ -72,7 +72,7 @@
         <div class="comments">
 
             <div id="comments">
-                <h4>Comments</h4> {{-- Titre de la section commentaire --}}
+                <h4>Commentaires</h4> {{-- Titre de la section commentaire --}}
             </div>
 
             {{-- Mise en page de l'article --}}
@@ -83,7 +83,7 @@
 
             {{-- Ajout de commentaire --}}
 
-            <h4 class="text-center">Post a comment </h4>
+            <h4 class="text-center">Ajouter un commentaire </h4>
 
             {{-- Formulaire de commentaire --}}
             <form method="post" action="{{ route('comments.store') }}">
@@ -95,9 +95,9 @@
 
                 @if(Auth::check())
 
-                <label for="content" class="col-sm-12 text-center mt-5" style="clear: both;">Comment</label>
+                <label for="content" class="col-sm-12 text-center mt-5" style="clear: both;">Commentaire</label>
                 <div class="control" style="clear: both;">
-                    <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required=""
+                    <textarea name="content" class="textarea w-100 p-3" placeholder="commentaire" minlength="5" required=""
                         rows="2"></textarea>
                 </div>
         </div>
@@ -118,8 +118,8 @@
         {{-- Nom --}}
         <div class="form-group">
             <div class="control" style="float: left;width: 35%;">
-                <label for="title" class="col-sm-12 text-center">Name</label>
-                <input type="text" name="name" value="" class="input w-100 p-3" placeholder="name" minlength="2"
+                <label for="title" class="col-sm-12 text-center">Nom</label>
+                <input type="text" name="name" value="" class="input w-100 p-3" placeholder="nom" minlength="2"
                     maxlength="100" required="">
             </div>
 
@@ -132,9 +132,9 @@
 
 
             {{-- Commentaire --}}
-            <label for="content" class="col-sm-12 text-center" style="clear: both;">Comment</label>
+            <label for="content" class="col-sm-12 text-center" style="clear: both;">Commentaire</label>
             <div class="control" style="clear: both;">
-                <textarea name="content" class="textarea w-100 p-3" placeholder="comment" minlength="5" required=""
+                <textarea name="content" class="textarea w-100 p-3" placeholder="commentaire" minlength="5" required=""
                     rows="2"></textarea>
             </div>
         </div>

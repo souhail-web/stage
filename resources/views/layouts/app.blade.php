@@ -159,7 +159,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a href="{{ url('/') }}" class="navbar-brand">
-                    <span class="font-weight-bold text-primary">CEDHD</span>
+                    <span class="cedhd-logo-text">CEDHD</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
                     <span class="navbar-toggler-icon"></span>
@@ -167,22 +167,22 @@
                 <!-- Navigation principale -->
                 <div class="collapse navbar-collapse" id="navbarMain">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
+                        <li class="nav-item" style="--animation-order: 1;">
                             <a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
                                 <i class="fas fa-home mr-1"></i> Accueil
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="--animation-order: 2;">
                             <a href="/posts" class="nav-link {{ Request::is('posts*') && !Request::is('posts/create') ? 'active' : '' }}">
                                 <i class="fas fa-newspaper mr-1"></i> Publications
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="--animation-order: 3;">
                             <a class="nav-link {{ Request::is('About') ? 'active' : '' }}" href="{{ route('aboutPage') }}">
                                 <i class="fas fa-info-circle mr-1"></i> À propos
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" style="--animation-order: 4;">
                             <a class="nav-link {{ Request::is('Contact') ? 'active' : '' }}" href="{{ route('contactPage') }}">
                                 <i class="fas fa-envelope mr-1"></i> Contact
                             </a>
@@ -212,20 +212,18 @@
                             <div class="dropdown-menu dropdown-menu-right shadow-sm" aria-labelledby="navbarDropdown">
                                 <div class="dropdown-header">Mon compte</div>
                                 
-                                @can('modify-info')
                                 <a class="dropdown-item" href="{{ route('user.users.index') }}">
                                     <i class="fas fa-id-card mr-2"></i> Mes informations
                                 </a>
                                 <a class="dropdown-item" href="{{ route('user.posts.index') }}">
                                     <i class="fas fa-file-alt mr-2"></i> Mes publications
                                 </a>
-                                @endcan
                                 
                                 <a class="dropdown-item" href="{{ route('posts.create') }}">
                                     <i class="fas fa-edit mr-2"></i> Rédiger un article
                                 </a>
                                 
-                                @can('manage-users')
+                                @if(Auth::check() && Auth::user()->isAdmin())
                                 <div class="dropdown-divider"></div>
                                 <div class="dropdown-header">Administration</div>
                                 <a class="dropdown-item" href="{{ route('admin.users.index') }}">
@@ -234,7 +232,7 @@
                                 <a class="dropdown-item" href="{{ route('admin.posts.index') }}">
                                     <i class="fas fa-newspaper mr-2"></i> Gestion des publications
                                 </a>
-                                @endcan
+                                @endif
                                 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
